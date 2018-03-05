@@ -1,0 +1,261 @@
+--------------------------------------------------------------------------------
+Codebook for NHGIS data file 'nhgis0058_ds29_1890_state'
+--------------------------------------------------------------------------------
+ 
+Contents
+    - Data Summary
+    - Data Dictionary
+    - Citation and Use
+ 
+Additional documentation on NHGIS data sources is available at: 
+    https://www.nhgis.org/documentation/tabular-data 
+ 
+--------------------------------------------------------------------------------
+Data Summary
+--------------------------------------------------------------------------------
+ 
+Year:             1890
+Geographic level: State
+Dataset:          1890 Census: Population, Housing & Agriculture Data [US & States]
+   NHGIS code:    1890_sPHA
+   NHGIS ID:      ds29
+ 
+Tables:
+ 
+1. Native White Population by Nativity of Parents by Place of Birth
+   Universe:    Native White Persons
+   Source code: NT4
+   NHGIS code:  AWM
+ 
+2. Native Colored Population by Place of Birth
+   Universe:    Native Colored Persons
+   Source code: NT5
+   NHGIS code:  AWN
+ 
+--------------------------------------------------------------------------------
+Data Dictionary
+--------------------------------------------------------------------------------
+ 
+Context Fields 
+    GISJOIN:     GIS Join Match Code
+    YEAR:        Data File Year
+    STATE:       State Name
+    STATEA:      State Code
+    AREANAME:    Area name
+ 
+Table 1:     Native White Population by Nativity of Parents by Place of Birth
+Universe:    Native White Persons
+Source code: NT4
+NHGIS code:  AWM
+    AWM001:      Native parentage >> Maine
+    AWM002:      Native parentage >> New Hampshire
+    AWM003:      Native parentage >> Vermont
+    AWM004:      Native parentage >> Massachusetts
+    AWM005:      Native parentage >> Rhode Island
+    AWM006:      Native parentage >> Connecticut
+    AWM007:      Native parentage >> New York
+    AWM008:      Native parentage >> New Jersey
+    AWM009:      Native parentage >> Pennsylvania
+    AWM010:      Native parentage >> Delaware
+    AWM011:      Native parentage >> Maryland
+    AWM012:      Native parentage >> District of Columbia
+    AWM013:      Native parentage >> Virginia
+    AWM014:      Native parentage >> West Virginia
+    AWM015:      Native parentage >> North Carolina
+    AWM016:      Native parentage >> South Carolina
+    AWM017:      Native parentage >> Georgia
+    AWM018:      Native parentage >> Florida
+    AWM019:      Native parentage >> Ohio
+    AWM020:      Native parentage >> Indiana
+    AWM021:      Native parentage >> Illinois
+    AWM022:      Native parentage >> Michigan
+    AWM023:      Native parentage >> Wisconsin
+    AWM024:      Native parentage >> Minnesota
+    AWM025:      Native parentage >> Iowa
+    AWM026:      Native parentage >> Missouri
+    AWM027:      Native parentage >> North Dakota
+    AWM028:      Native parentage >> South Dakota
+    AWM029:      Native parentage >> Nebraska
+    AWM030:      Native parentage >> Kansas
+    AWM031:      Native parentage >> Kentucky
+    AWM032:      Native parentage >> Tennessee
+    AWM033:      Native parentage >> Alabama
+    AWM034:      Native parentage >> Mississippi
+    AWM035:      Native parentage >> Louisiana
+    AWM036:      Native parentage >> Texas
+    AWM037:      Native parentage >> Indian Territory
+    AWM038:      Native parentage >> Oklahoma
+    AWM039:      Native parentage >> Arkansas
+    AWM040:      Native parentage >> Montana
+    AWM041:      Native parentage >> Wyoming
+    AWM042:      Native parentage >> Colorado
+    AWM043:      Native parentage >> New Mexico
+    AWM044:      Native parentage >> Arizona
+    AWM045:      Native parentage >> Utah
+    AWM046:      Native parentage >> Nevada
+    AWM047:      Native parentage >> Idaho
+    AWM048:      Native parentage >> Washington
+    AWM049:      Native parentage >> Oregon
+    AWM050:      Native parentage >> California
+    AWM051:      Native parentage >> Alaska
+    AWM052:      Native parentage >> State not specified (born in the United States)
+    AWM053:      Native parentage >> Born at sea (under U.S. flag)
+    AWM054:      Native parentage >> Born abroad (U.S. citizens born abroad)
+    AWM055:      Foreign parentage >> Maine
+    AWM056:      Foreign parentage >> New Hampshire
+    AWM057:      Foreign parentage >> Vermont
+    AWM058:      Foreign parentage >> Massachusetts
+    AWM059:      Foreign parentage >> Rhode Island
+    AWM060:      Foreign parentage >> Connecticut
+    AWM061:      Foreign parentage >> New York
+    AWM062:      Foreign parentage >> New Jersey
+    AWM063:      Foreign parentage >> Pennsylvania
+    AWM064:      Foreign parentage >> Delaware
+    AWM065:      Foreign parentage >> Maryland
+    AWM066:      Foreign parentage >> District of Columbia
+    AWM067:      Foreign parentage >> Virginia
+    AWM068:      Foreign parentage >> West Virginia
+    AWM069:      Foreign parentage >> North Carolina
+    AWM070:      Foreign parentage >> South Carolina
+    AWM071:      Foreign parentage >> Georgia
+    AWM072:      Foreign parentage >> Florida
+    AWM073:      Foreign parentage >> Ohio
+    AWM074:      Foreign parentage >> Indiana
+    AWM075:      Foreign parentage >> Illinois
+    AWM076:      Foreign parentage >> Michigan
+    AWM077:      Foreign parentage >> Wisconsin
+    AWM078:      Foreign parentage >> Minnesota
+    AWM079:      Foreign parentage >> Iowa
+    AWM080:      Foreign parentage >> Missouri
+    AWM081:      Foreign parentage >> North Dakota
+    AWM082:      Foreign parentage >> South Dakota
+    AWM083:      Foreign parentage >> Nebraska
+    AWM084:      Foreign parentage >> Kansas
+    AWM085:      Foreign parentage >> Kentucky
+    AWM086:      Foreign parentage >> Tennessee
+    AWM087:      Foreign parentage >> Alabama
+    AWM088:      Foreign parentage >> Mississippi
+    AWM089:      Foreign parentage >> Louisiana
+    AWM090:      Foreign parentage >> Texas
+    AWM091:      Foreign parentage >> Indian Territory
+    AWM092:      Foreign parentage >> Oklahoma
+    AWM093:      Foreign parentage >> Arkansas
+    AWM094:      Foreign parentage >> Montana
+    AWM095:      Foreign parentage >> Wyoming
+    AWM096:      Foreign parentage >> Colorado
+    AWM097:      Foreign parentage >> New Mexico
+    AWM098:      Foreign parentage >> Arizona
+    AWM099:      Foreign parentage >> Utah
+    AWM100:      Foreign parentage >> Nevada
+    AWM101:      Foreign parentage >> Idaho
+    AWM102:      Foreign parentage >> Washington
+    AWM103:      Foreign parentage >> Oregon
+    AWM104:      Foreign parentage >> California
+    AWM105:      Foreign parentage >> Alaska
+    AWM106:      Foreign parentage >> State not specified (born in the United States)
+    AWM107:      Foreign parentage >> Born at sea (under U.S. flag)
+    AWM108:      Foreign parentage >> Born abroad (U.S. citizens born abroad)
+ 
+Table 2:     Native Colored Population by Place of Birth
+Universe:    Native Colored Persons
+Source code: NT5
+NHGIS code:  AWN
+    AWN001:      Maine
+    AWN002:      New Hampshire
+    AWN003:      Vermont
+    AWN004:      Massachusetts
+    AWN005:      Rhode Island
+    AWN006:      Connecticut
+    AWN007:      New York
+    AWN008:      New Jersey
+    AWN009:      Pennsylvania
+    AWN010:      Delaware
+    AWN011:      Maryland
+    AWN012:      District of Columbia
+    AWN013:      Virginia
+    AWN014:      West Virginia
+    AWN015:      North Carolina
+    AWN016:      South Carolina
+    AWN017:      Georgia
+    AWN018:      Florida
+    AWN019:      Ohio
+    AWN020:      Indiana
+    AWN021:      Illinois
+    AWN022:      Michigan
+    AWN023:      Wisconsin
+    AWN024:      Minnesota
+    AWN025:      Iowa
+    AWN026:      Missouri
+    AWN027:      North Dakota
+    AWN028:      South Dakota
+    AWN029:      Nebraska
+    AWN030:      Kansas
+    AWN031:      Kentucky
+    AWN032:      Tennessee
+    AWN033:      Alabama
+    AWN034:      Mississippi
+    AWN035:      Louisiana
+    AWN036:      Texas
+    AWN037:      Indian Territory
+    AWN038:      Oklahoma
+    AWN039:      Arkansas
+    AWN040:      Montana
+    AWN041:      Wyoming
+    AWN042:      Colorado
+    AWN043:      New Mexico
+    AWN044:      Arizona
+    AWN045:      Utah
+    AWN046:      Nevada
+    AWN047:      Idaho
+    AWN048:      Washington
+    AWN049:      Oregon
+    AWN050:      California
+    AWN051:      Alaska
+    AWN052:      State not specified (born in the United States)
+    AWN053:      Born at sea (under U.S. flag)
+    AWN054:      Born abroad (U.S. citizens born abroad)
+ 
+--------------------------------------------------------------------------------
+Citation and Use of NHGIS Data
+--------------------------------------------------------------------------------
+ 
+All persons are granted a limited license to use this documentation and the
+accompanying data, subject to the following conditions:
+
+* Publications and research reports employing NHGIS data (either tabular or GIS)
+  must cite it appropriately. The citation should include the following:
+
+    Steven Manson, Jonathan Schroeder, David Van Riper, and Steven Ruggles. 
+    IPUMS National Historical Geographic Information System: Version 12.0 [Database]. 
+    Minneapolis: University of Minnesota. 2017. 
+    http://doi.org/10.18128/D050.V12.0
+
+* Publications and research reports employing school attendance areas data
+  (either tabular or GIS) must cite it appropriately. The citation should
+  include the following:
+
+    The College of William and Mary and the Minnesota Population Center.
+    School Attendance Boundary Information System (SABINS): Version 1.0.
+    Minneapolis, MN: University of Minnesota 2011.
+
+* For policy briefs or articles in the popular press, we recommend that you cite the use of NHGIS data as follows:
+
+    IPUMS NHGIS, University of Minnesota, www.nhgis.org.
+
+* If possible, citations involving school attendance areas should also include
+  the URL for the SABINS site:
+
+    http://www.sabinsdata.org/.
+
+In addition, we request that users send us a copy of any publications, research
+reports, or educational material making use of the data or documentation.
+Printed matter should be sent to:
+
+    NHGIS
+    Minnesota Population Center
+    University of Minnesota
+    50 Willey Hall
+    225 19th Ave S
+    Minneapolis, MN 55455
+
+Send electronic material to: nhgis@umn.edu
