@@ -1,0 +1,49 @@
+GISJOIN,YEAR,STATE,STATEA,COUNTYA,AREANAME,AE7001
+"G010","1900","Alabama","010",,"Alabama",7
+"G045","1900","Arizona Territory","045",,"Arizona",7
+"G050","1900","Arkansas","050",,"Arkansas",8
+"G060","1900","California","060",,"California",25
+"G080","1900","Colorado","080",,"Colorado",11
+"G090","1900","Connecticut","090",,"Connecticut",42
+"G100","1900","Delaware","100",,"Delaware",32
+"G120","1900","Florida","120",,"Florida",9
+"G130","1900","Georgia","130",,"Georgia",7
+"G160","1900","Idaho","160",,"Idaho",13
+"G170","1900","Illinois","170",,"Illinois",54
+"G180","1900","Indiana","180",,"Indiana",39
+"G190","1900","Iowa","190",,"Iowa",43
+"G200","1900","Kansas","200",,"Kansas",15
+"G210","1900","Kentucky","210",,"Kentucky",17
+"G220","1900","Louisiana","220",,"Louisianna",13
+"G230","1900","Maine","230",,"Maine",15
+"G240","1900","Maryland","240",,"Maryland",34
+"G250","1900","Massachusetts","250",,"Massachusetts",50
+"G260","1900","Michigan","260",,"Michigan",33
+"G270","1900","Minnesota","270",,"Minnesota",26
+"G280","1900","Mississippi","280",,"Mississippi",8
+"G290","1900","Missouri","290",,"Missouri",25
+"G300","1900","Montana","300",,"Montana",5
+"G310","1900","Nebraska","310",,"Nebraska",19
+"G320","1900","Nevada","320",,"Nevada",6
+"G330","1900","New Hampshire","330",,"New Hampshire",19
+"G340","1900","New Jersey","340",,"New Jersey",57
+"G355","1900","New Mexico Territory","355",,"New Mexico",4
+"G360","1900","New York","360",,"New York",39
+"G370","1900","North Carolina","370",,"North Carolina",9
+"G380","1900","North Dakota","380",,"North Dakota",13
+"G390","1900","Ohio","390",,"Ohio",42
+"G400","1900","Oklahoma","400",,"Oklahoma",7
+"G410","1900","Oregon","410",,"Oregon",13
+"G420","1900","Pennsylvania","420",,"Pennsylvania",46
+"G440","1900","Rhode Island","440",,"Rhode Island",51
+"G450","1900","South Carolina","450",,"South Carolina",9
+"G460","1900","South Dakota","460",,"South Dakota",12
+"G470","1900","Tennessee","470",,"Tennessee",13
+"G480","1900","Texas","480",,"Texas",6
+"G490","1900","Utah","490",,"Utah",12
+"G500","1900","Vermont","500",,"Vermont",18
+"G510","1900","Virginia","510",,"Virginia",14
+"G530","1900","Washington","530",,"Washington",14
+"G540","1900","West Virginia","540",,"West Virginia",16
+"G550","1900","Wisconsin","550",,"Wisconsin",35
+"G560","1900","Wyoming","560",,"Wyoming",3

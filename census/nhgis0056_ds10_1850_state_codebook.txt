@@ -1,0 +1,915 @@
+--------------------------------------------------------------------------------
+Codebook for NHGIS data file 'nhgis0056_ds10_1850_state'
+--------------------------------------------------------------------------------
+ 
+Contents
+    - Data Summary
+    - Data Dictionary
+    - Citation and Use
+ 
+Additional documentation on NHGIS data sources is available at: 
+    https://www.nhgis.org/documentation/tabular-data 
+ 
+--------------------------------------------------------------------------------
+Data Summary
+--------------------------------------------------------------------------------
+ 
+Year:             1850
+Geographic level: State
+Dataset:          1850 Census: Population, Agriculture & Other Data [US, States & Counties]
+   NHGIS code:    1850_cPAX
+   NHGIS ID:      ds10
+ 
+Tables:
+ 
+1. Total Population
+   Universe:    Persons
+   Source code: NT1
+   NHGIS code:  ADQ
+ 
+2. Urban Population 2,500 and Over
+   Universe:    Urban Persons (Incorporated Places 2,500 and Over)
+   Source code: NT2
+   NHGIS code:  ADZ
+ 
+3. Population in Cities of 25,000 and Over
+   Universe:    Persons in Cities of 25,000 and Over
+   Source code: NT3
+   NHGIS code:  AD9
+ 
+4. Race/Slave Status by Sex by Age
+   Universe:    Persons
+   Source code: NT4
+   NHGIS code:  AEL
+ 
+5. Race/Slave Status by Sex
+   Universe:    Persons
+   Source code: NT5
+   NHGIS code:  AEW
+ 
+6. Race/Slave Status
+   Universe:    Persons
+   Source code: NT6
+   NHGIS code:  AE6
+ 
+7. Births by Slave Status
+   Universe:    Births During the Year Ending June 1, 1850
+   Source code: NT10
+   NHGIS code:  ADR
+ 
+8. Total Births
+   Universe:    Births During the Year Ending June 1, 1850
+   Source code: NT12
+   NHGIS code:  ADS
+ 
+9. Total White Persons Married During the Year Ending June 1, 1850.
+   Universe:    White Persons Married During the Year Ending June 1, 1850
+   Source code: NT13
+   NHGIS code:  ADT
+ 
+10. Total Persons Married During the Year Ending June 1, 1850.
+    Universe:    Persons Married During the Year Ending June 1, 1850
+    Source code: NT14
+    NHGIS code:  ADU
+ 
+11. Deaths During the Year Ending June 1, 1850 by Slave Status
+    Universe:    Deaths During the Year Ending June 1, 1850
+    Source code: NT15
+    NHGIS code:  ADV
+ 
+12. Total Deaths During the Year Ending June 1, 1850
+    Universe:    Deaths During the Year Ending June 1, 1850
+    Source code: NT17
+    NHGIS code:  ADW
+ 
+13. Total Dwellings of White and Free-Colored Persons
+    Universe:    Dwellings of White and Free-Colored Persons
+    Source code: NT18
+    NHGIS code:  ADX
+ 
+14. Total White and Free-Colored Families
+    Universe:    White and Free Colored Families
+    Source code: NT19
+    NHGIS code:  ADY
+ 
+15. Types of Learning Institutions
+    Universe:    Learning Institutions
+    Source code: NT20
+    NHGIS code:  AD0
+ 
+16. Persons at Learning Institutions by Type of Learning Institution
+    Universe:    Teachers and Pupils in Learning Institutions
+    Source code: NT21
+    NHGIS code:  AD1
+ 
+17. Annual Income by Types of Learning Institutions by Income Source
+    Universe:    Learning Institutions
+    Source code: NT23
+    NHGIS code:  AD2
+ 
+18. Total Annual Income by Types of Learning Institutions
+    Universe:    Learning Institutions
+    Source code: NT24
+    NHGIS code:  AD3
+ 
+19. White and Free Colored Persons Attending School by Race by Sex
+    Universe:    White and Free Colored Persons Attending School
+    Source code: NT25
+    NHGIS code:  AD4
+ 
+20. Persons Attending School by Race
+    Universe:    Persons Attending School
+    Source code: NT26
+    NHGIS code:  AD5
+ 
+21. Persons Attending School by Nativity
+    Universe:    Persons Attending School
+    Source code: NT27
+    NHGIS code:  AD6
+ 
+22. Aggregate Number of Persons Attending School
+    Universe:    Persons Attending School
+    Source code: NT28
+    NHGIS code:  AD7
+ 
+23. White and Free Colored Adults Who Cannot Read and Write by Race by Sex
+    Universe:    White and Free Colored Adults Who Cannot Read and Write
+    Source code: NT29
+    NHGIS code:  AD8
+ 
+24. White and Free Colored Adults Who Cannot Read and Write by Race
+    Universe:    White and Free Colored Adults Who Cannot Read and Write
+    Source code: NT30
+    NHGIS code:  AEA
+ 
+25. Adult Persons Who Cannot Read and Write by Nativity
+    Universe:    Adult Persons Who Cannot Read and Write
+    Source code: NT31
+    NHGIS code:  AEB
+ 
+26. Aggregate Number of Adults Who Cannot Read and Write
+    Universe:    Adult Persons Who Cannot Read and Write
+    Source code: NT32
+    NHGIS code:  AEC
+ 
+27. Improved/Unimproved Land in Farms
+    Universe:    Farms
+    Source code: NT33
+    NHGIS code:  AED
+ 
+28. Total Cash Value of Farms
+    Universe:    Farms
+    Source code: NT34
+    NHGIS code:  AEE
+ 
+29. Value of Farm Assets
+    Universe:    Farms
+    Source code: NT35A
+    NHGIS code:  AEF
+ 
+30. Value of Farm Productions
+    Universe:    Farms
+    Source code: NT35B
+    NHGIS code:  AEG
+ 
+31. Types of Libraries
+    Universe:    Libraries
+    Source code: NT36
+    NHGIS code:  AEH
+ 
+32. Volumes in Libraries by Types of Libraries
+    Universe:    Libraries
+    Source code: NT37
+    NHGIS code:  AEI
+ 
+33. Total Number of Libraries
+    Universe:    Libraries
+    Source code: NT38
+    NHGIS code:  AEJ
+ 
+34. Total Number of Volumes in Libraries
+    Universe:    Libraries
+    Source code: NT39
+    NHGIS code:  AEK
+ 
+35. Nativity
+    Universe:    Persons
+    Source code: NT40
+    NHGIS code:  AEM
+ 
+36. Total Educational Income
+    Universe:    Learning Institutions
+    Source code: NT41
+    NHGIS code:  AEN
+ 
+37. Total Persons 5 to 19 Years of Age
+    Universe:    Persons 5 to 19 Years of Age
+    Source code: NT42
+    NHGIS code:  AEO
+ 
+38. Total Number of Farms
+    Universe:    Farms
+    Source code: NT43
+    NHGIS code:  AEP
+ 
+39. Total Capital Invested in Manufacturing Establishments
+    Universe:    Manufacturing Establishments
+    Source code: NT44
+    NHGIS code:  AEQ
+ 
+40. Total Persons Employed in Manufacturing Establishments
+    Universe:    Employed Persons in Manufacturing Establishments
+    Source code: NT45
+    NHGIS code:  AER
+ 
+41. Total Value of Annual Product in Manufacturing Establishments
+    Universe:    Manufacturing Establishments
+    Source code: NT46
+    NHGIS code:  AES
+ 
+42. Churches by Denomination
+    Universe:    Churches
+    Source code: NT47
+    NHGIS code:  AET
+ 
+43. Aggregate Accommodations of Churches by Denomination
+    Universe:    Churches
+    Source code: NT48
+    NHGIS code:  AEU
+ 
+44. Value of Church Property by Denomination
+    Universe:    Churches
+    Source code: NT49
+    NHGIS code:  AEV
+ 
+45. Total Number of Churches
+    Universe:    Churches
+    Source code: NT50
+    NHGIS code:  AEX
+ 
+46. Total Aggregate Accommodations of Churches
+    Universe:    Churches
+    Source code: NT51
+    NHGIS code:  AEY
+ 
+47. Total Value of Church Property
+    Universe:    Churches
+    Source code: NT52
+    NHGIS code:  AEZ
+ 
+48. Sex by Age
+    Universe:    Persons
+    Source code: NT53
+    NHGIS code:  AE0
+ 
+49. Sex
+    Universe:    Persons
+    Source code: NT54
+    NHGIS code:  AE1
+ 
+50. Age
+    Universe:    Persons
+    Source code: NT55
+    NHGIS code:  AE2
+ 
+51. Total White Population
+    Universe:    White Persons
+    Source code: NT56
+    NHGIS code:  AE3
+ 
+52. Water Transport
+    Universe:    Specified Geographic Area
+    Source code: NT57
+    NHGIS code:  AE4
+ 
+53. Rail Transport
+    Universe:    Specified Geographic Area
+    Source code: NT58
+    NHGIS code:  AE5
+ 
+--------------------------------------------------------------------------------
+Data Dictionary
+--------------------------------------------------------------------------------
+ 
+Context Fields 
+    GISJOIN:     GIS Join Match Code
+    YEAR:        Data File Year
+    STATE:       State Name
+    STATEA:      State Code
+    COUNTYA:     County Code
+    AREANAME:    Area name
+ 
+Table 1:     Total Population
+Universe:    Persons
+Source code: NT1
+NHGIS code:  ADQ
+    ADQ001:      Total
+ 
+Table 2:     Urban Population 2,500 and Over
+Universe:    Urban Persons (Incorporated Places 2,500 and Over)
+Source code: NT2
+NHGIS code:  ADZ
+    ADZ001:      Total
+ 
+Table 3:     Population in Cities of 25,000 and Over
+Universe:    Persons in Cities of 25,000 and Over
+Source code: NT3
+NHGIS code:  AD9
+    AD9001:      Total
+ 
+Table 4:     Race/Slave Status by Sex by Age
+Universe:    Persons
+Source code: NT4
+NHGIS code:  AEL
+    AEL001:      White >> Male >> Under 1 year of age
+    AEL002:      White >> Male >> 1 to 4 years of age
+    AEL003:      White >> Male >> 5 to 9 years of age
+    AEL004:      White >> Male >> 10 to 14 years of age
+    AEL005:      White >> Male >> 15 to 19 years of age
+    AEL006:      White >> Male >> 20 to 29 years of age
+    AEL007:      White >> Male >> 30 to 39 years of age
+    AEL008:      White >> Male >> 40 to 49 years of age
+    AEL009:      White >> Male >> 50 to 59 years of age
+    AEL010:      White >> Male >> 60 to 69 years of age
+    AEL011:      White >> Male >> 70 to 79 years of age
+    AEL012:      White >> Male >> 80 to 89 years of age
+    AEL013:      White >> Male >> 90 to 99 years of age
+    AEL014:      White >> Male >> 100 years of age and over
+    AEL015:      White >> Male >> Age unknown
+    AEL016:      White >> Female >> Under 1 year of age
+    AEL017:      White >> Female >> 1 to 4 years of age
+    AEL018:      White >> Female >> 5 to 9 years of age
+    AEL019:      White >> Female >> 10 to 14 years of age
+    AEL020:      White >> Female >> 15 to 19 years of age
+    AEL021:      White >> Female >> 20 to 29 years of age
+    AEL022:      White >> Female >> 30 to 39 years of age
+    AEL023:      White >> Female >> 40 to 49 years of age
+    AEL024:      White >> Female >> 50 to 59 years of age
+    AEL025:      White >> Female >> 60 to 69 years of age
+    AEL026:      White >> Female >> 70 to 79 years of age
+    AEL027:      White >> Female >> 80 to 89 years of age
+    AEL028:      White >> Female >> 90 to 99 years of age
+    AEL029:      White >> Female >> 100 years of age and over
+    AEL030:      White >> Female >> Age unknown
+    AEL031:      Nonwhite: Free >> Male >> Under 1 year of age
+    AEL032:      Nonwhite: Free >> Male >> 1 to 4 years of age
+    AEL033:      Nonwhite: Free >> Male >> 5 to 9 years of age
+    AEL034:      Nonwhite: Free >> Male >> 10 to 14 years of age
+    AEL035:      Nonwhite: Free >> Male >> 15 to 19 years of age
+    AEL036:      Nonwhite: Free >> Male >> 20 to 29 years of age
+    AEL037:      Nonwhite: Free >> Male >> 30 to 39 years of age
+    AEL038:      Nonwhite: Free >> Male >> 40 to 49 years of age
+    AEL039:      Nonwhite: Free >> Male >> 50 to 59 years of age
+    AEL040:      Nonwhite: Free >> Male >> 60 to 69 years of age
+    AEL041:      Nonwhite: Free >> Male >> 70 to 79 years of age
+    AEL042:      Nonwhite: Free >> Male >> 80 to 89 years of age
+    AEL043:      Nonwhite: Free >> Male >> 90 to 99 years of age
+    AEL044:      Nonwhite: Free >> Male >> 100 years of age and over
+    AEL045:      Nonwhite: Free >> Male >> Age unknown
+    AEL046:      Nonwhite: Free >> Female >> Under 1 year of age
+    AEL047:      Nonwhite: Free >> Female >> 1 to 4 years of age
+    AEL048:      Nonwhite: Free >> Female >> 5 to 9 years of age
+    AEL049:      Nonwhite: Free >> Female >> 10 to 14 years of age
+    AEL050:      Nonwhite: Free >> Female >> 15 to 19 years of age
+    AEL051:      Nonwhite: Free >> Female >> 20 to 29 years of age
+    AEL052:      Nonwhite: Free >> Female >> 30 to 39 years of age
+    AEL053:      Nonwhite: Free >> Female >> 40 to 49 years of age
+    AEL054:      Nonwhite: Free >> Female >> 50 to 59 years of age
+    AEL055:      Nonwhite: Free >> Female >> 60 to 69 years of age
+    AEL056:      Nonwhite: Free >> Female >> 70 to 79 years of age
+    AEL057:      Nonwhite: Free >> Female >> 80 to 89 years of age
+    AEL058:      Nonwhite: Free >> Female >> 90 to 99 years of age
+    AEL059:      Nonwhite: Free >> Female >> 100 years of age and over
+    AEL060:      Nonwhite: Free >> Female >> Age unknown
+    AEL061:      Nonwhite: Slave >> Male >> Under 1 year of age
+    AEL062:      Nonwhite: Slave >> Male >> 1 to 4 years of age
+    AEL063:      Nonwhite: Slave >> Male >> 5 to 9 years of age
+    AEL064:      Nonwhite: Slave >> Male >> 10 to 14 years of age
+    AEL065:      Nonwhite: Slave >> Male >> 15 to 19 years of age
+    AEL066:      Nonwhite: Slave >> Male >> 20 to 29 years of age
+    AEL067:      Nonwhite: Slave >> Male >> 30 to 39 years of age
+    AEL068:      Nonwhite: Slave >> Male >> 40 to 49 years of age
+    AEL069:      Nonwhite: Slave >> Male >> 50 to 59 years of age
+    AEL070:      Nonwhite: Slave >> Male >> 60 to 69 years of age
+    AEL071:      Nonwhite: Slave >> Male >> 70 to 79 years of age
+    AEL072:      Nonwhite: Slave >> Male >> 80 to 89 years of age
+    AEL073:      Nonwhite: Slave >> Male >> 90 to 99 years of age
+    AEL074:      Nonwhite: Slave >> Male >> 100 years of age and over
+    AEL075:      Nonwhite: Slave >> Male >> Age unknown
+    AEL076:      Nonwhite: Slave >> Female >> Under 1 year of age
+    AEL077:      Nonwhite: Slave >> Female >> 1 to 4 years of age
+    AEL078:      Nonwhite: Slave >> Female >> 5 to 9 years of age
+    AEL079:      Nonwhite: Slave >> Female >> 10 to 14 years of age
+    AEL080:      Nonwhite: Slave >> Female >> 15 to 19 years of age
+    AEL081:      Nonwhite: Slave >> Female >> 20 to 29 years of age
+    AEL082:      Nonwhite: Slave >> Female >> 30 to 39 years of age
+    AEL083:      Nonwhite: Slave >> Female >> 40 to 49 years of age
+    AEL084:      Nonwhite: Slave >> Female >> 50 to 59 years of age
+    AEL085:      Nonwhite: Slave >> Female >> 60 to 69 years of age
+    AEL086:      Nonwhite: Slave >> Female >> 70 to 79 years of age
+    AEL087:      Nonwhite: Slave >> Female >> 80 to 89 years of age
+    AEL088:      Nonwhite: Slave >> Female >> 90 to 99 years of age
+    AEL089:      Nonwhite: Slave >> Female >> 100 years of age and over
+    AEL090:      Nonwhite: Slave >> Female >> Age unknown
+ 
+Table 5:     Race/Slave Status by Sex
+Universe:    Persons
+Source code: NT5
+NHGIS code:  AEW
+    AEW001:      White >> Male
+    AEW002:      White >> Female
+    AEW003:      Nonwhite: Free >> Male
+    AEW004:      Nonwhite: Free >> Female
+    AEW005:      Nonwhite: Slave >> Male
+    AEW006:      Nonwhite: Slave >> Female
+ 
+Table 6:     Race/Slave Status
+Universe:    Persons
+Source code: NT6
+NHGIS code:  AE6
+    AE6001:      White
+    AE6002:      Nonwhite: Free
+    AE6003:      Nonwhite: Slave
+ 
+Table 7:     Births by Slave Status
+Universe:    Births During the Year Ending June 1, 1850
+Source code: NT10
+NHGIS code:  ADR
+    ADR001:      White and free colored
+    ADR002:      Slave
+ 
+Table 8:     Total Births
+Universe:    Births During the Year Ending June 1, 1850
+Source code: NT12
+NHGIS code:  ADS
+    ADS001:      Total
+ 
+Table 9:     Total White Persons Married During the Year Ending June 1, 1850.
+Universe:    White Persons Married During the Year Ending June 1, 1850
+Source code: NT13
+NHGIS code:  ADT
+    ADT001:      Total
+ 
+Table 10:    Total Persons Married During the Year Ending June 1, 1850.
+Universe:    Persons Married During the Year Ending June 1, 1850
+Source code: NT14
+NHGIS code:  ADU
+    ADU001:      Total
+ 
+Table 11:    Deaths During the Year Ending June 1, 1850 by Slave Status
+Universe:    Deaths During the Year Ending June 1, 1850
+Source code: NT15
+NHGIS code:  ADV
+    ADV001:      White and free colored
+    ADV002:      Slave
+ 
+Table 12:    Total Deaths During the Year Ending June 1, 1850
+Universe:    Deaths During the Year Ending June 1, 1850
+Source code: NT17
+NHGIS code:  ADW
+    ADW001:      Total
+ 
+Table 13:    Total Dwellings of White and Free-Colored Persons
+Universe:    Dwellings of White and Free-Colored Persons
+Source code: NT18
+NHGIS code:  ADX
+    ADX001:      Total
+ 
+Table 14:    Total White and Free-Colored Families
+Universe:    White and Free Colored Families
+Source code: NT19
+NHGIS code:  ADY
+    ADY001:      Total
+ 
+Table 15:    Types of Learning Institutions
+Universe:    Learning Institutions
+Source code: NT20
+NHGIS code:  AD0
+    AD0001:      Colleges
+    AD0002:      Public schools
+    AD0003:      Academies and other schools
+ 
+Table 16:    Persons at Learning Institutions by Type of Learning Institution
+Universe:    Teachers and Pupils in Learning Institutions
+Source code: NT21
+NHGIS code:  AD1
+    AD1001:      Teachers >> Colleges
+    AD1002:      Teachers >> Public schools
+    AD1003:      Teachers >> Academies and other schools
+    AD1004:      Pupils >> Colleges
+    AD1005:      Pupils >> Public schools
+    AD1006:      Pupils >> Academies and other schools
+ 
+Table 17:    Annual Income by Types of Learning Institutions by Income Source
+Universe:    Learning Institutions
+Source code: NT23
+NHGIS code:  AD2
+    AD2001:      Annual income >> Colleges >> Endowment
+    AD2002:      Annual income >> Colleges >> Taxation
+    AD2003:      Annual income >> Colleges >> Public funds
+    AD2004:      Annual income >> Colleges >> Other sources
+    AD2005:      Annual income >> Public schools >> Endowment
+    AD2006:      Annual income >> Public schools >> Taxation
+    AD2007:      Annual income >> Public schools >> Public funds
+    AD2008:      Annual income >> Public schools >> Other sources
+    AD2009:      Annual income >> Academies and other schools >> Endowment
+    AD2010:      Annual income >> Academies and other schools >> Taxation
+    AD2011:      Annual income >> Academies and other schools >> Public funds
+    AD2012:      Annual income >> Academies and other schools >> Other sources
+ 
+Table 18:    Total Annual Income by Types of Learning Institutions
+Universe:    Learning Institutions
+Source code: NT24
+NHGIS code:  AD3
+    AD3001:      Annual income >> Colleges
+    AD3002:      Annual income >> Public schools
+    AD3003:      Annual income >> Academies and other schools
+ 
+Table 19:    White and Free Colored Persons Attending School by Race by Sex
+Universe:    White and Free Colored Persons Attending School
+Source code: NT25
+NHGIS code:  AD4
+    AD4001:      White >> Male
+    AD4002:      White >> Female
+    AD4003:      Free Colored >> Male
+    AD4004:      Free Colored >> Female
+ 
+Table 20:    Persons Attending School by Race
+Universe:    Persons Attending School
+Source code: NT26
+NHGIS code:  AD5
+    AD5001:      White
+    AD5002:      Free Colored
+ 
+Table 21:    Persons Attending School by Nativity
+Universe:    Persons Attending School
+Source code: NT27
+NHGIS code:  AD6
+    AD6001:      Native
+    AD6002:      Foreign born
+ 
+Table 22:    Aggregate Number of Persons Attending School
+Universe:    Persons Attending School
+Source code: NT28
+NHGIS code:  AD7
+    AD7001:      Aggregate number of persons attending school
+ 
+Table 23:    White and Free Colored Adults Who Cannot Read and Write by Race by Sex
+Universe:    White and Free Colored Adults Who Cannot Read and Write
+Source code: NT29
+NHGIS code:  AD8
+    AD8001:      White >> Male
+    AD8002:      White >> Female
+    AD8003:      Free Colored >> Male
+    AD8004:      Free Colored >> Female
+ 
+Table 24:    White and Free Colored Adults Who Cannot Read and Write by Race
+Universe:    White and Free Colored Adults Who Cannot Read and Write
+Source code: NT30
+NHGIS code:  AEA
+    AEA001:      White
+    AEA002:      Free Colored
+ 
+Table 25:    Adult Persons Who Cannot Read and Write by Nativity
+Universe:    Adult Persons Who Cannot Read and Write
+Source code: NT31
+NHGIS code:  AEB
+    AEB001:      Native
+    AEB002:      Foreign born
+ 
+Table 26:    Aggregate Number of Adults Who Cannot Read and Write
+Universe:    Adult Persons Who Cannot Read and Write
+Source code: NT32
+NHGIS code:  AEC
+    AEC001:      Aggregate number of adults who cannot read or write
+ 
+Table 27:    Improved/Unimproved Land in Farms
+Universe:    Farms
+Source code: NT33
+NHGIS code:  AED
+    AED001:      Improved
+    AED002:      Unimproved
+ 
+Table 28:    Total Cash Value of Farms
+Universe:    Farms
+Source code: NT34
+NHGIS code:  AEE
+    AEE001:      Cash value of farms
+ 
+Table 29:    Value of Farm Assets
+Universe:    Farms
+Source code: NT35A
+NHGIS code:  AEF
+    AEF001:      Farming implements and machinery
+    AEF002:      Livestock
+ 
+Table 30:    Value of Farm Productions
+Universe:    Farms
+Source code: NT35B
+NHGIS code:  AEG
+    AEG001:      Animals slaughtered
+    AEG002:      Orchard products
+    AEG003:      Produce of market gardens
+    AEG004:      Homemade manufactures
+ 
+Table 31:    Types of Libraries
+Universe:    Libraries
+Source code: NT36
+NHGIS code:  AEH
+    AEH001:      Public libraries
+    AEH002:      School libraries
+    AEH003:      Sunday school libraries
+    AEH004:      College libraries
+    AEH005:      Church libraries
+ 
+Table 32:    Volumes in Libraries by Types of Libraries
+Universe:    Libraries
+Source code: NT37
+NHGIS code:  AEI
+    AEI001:      Number of volumes >> Public libraries
+    AEI002:      Number of volumes >> School libraries
+    AEI003:      Number of volumes >> Sunday school libraries
+    AEI004:      Number of volumes >> College libraries
+    AEI005:      Number of volumes >> Church libraries
+ 
+Table 33:    Total Number of Libraries
+Universe:    Libraries
+Source code: NT38
+NHGIS code:  AEJ
+    AEJ001:      Total
+ 
+Table 34:    Total Number of Volumes in Libraries
+Universe:    Libraries
+Source code: NT39
+NHGIS code:  AEK
+    AEK001:      Number of volumes
+ 
+Table 35:    Nativity
+Universe:    Persons
+Source code: NT40
+NHGIS code:  AEM
+    AEM001:      Born out of state but in U.S.
+    AEM002:      Born out of the country
+ 
+Table 36:    Total Educational Income
+Universe:    Learning Institutions
+Source code: NT41
+NHGIS code:  AEN
+    AEN001:      Educational income
+ 
+Table 37:    Total Persons 5 to 19 Years of Age
+Universe:    Persons 5 to 19 Years of Age
+Source code: NT42
+NHGIS code:  AEO
+    AEO001:      Total
+ 
+Table 38:    Total Number of Farms
+Universe:    Farms
+Source code: NT43
+NHGIS code:  AEP
+    AEP001:      Total
+ 
+Table 39:    Total Capital Invested in Manufacturing Establishments
+Universe:    Manufacturing Establishments
+Source code: NT44
+NHGIS code:  AEQ
+    AEQ001:      Capital invested in manufacturing
+ 
+Table 40:    Total Persons Employed in Manufacturing Establishments
+Universe:    Employed Persons in Manufacturing Establishments
+Source code: NT45
+NHGIS code:  AER
+    AER001:      Total
+ 
+Table 41:    Total Value of Annual Product in Manufacturing Establishments
+Universe:    Manufacturing Establishments
+Source code: NT46
+NHGIS code:  AES
+    AES001:      Value of annual product in manufacturing establishments
+ 
+Table 42:    Churches by Denomination
+Universe:    Churches
+Source code: NT47
+NHGIS code:  AET
+    AET001:      Baptist
+    AET002:      Christian
+    AET003:      Congregational
+    AET004:      Congregational-Orthodox
+    AET005:      Dutch Reformed
+    AET006:      Episcopal
+    AET007:      Free Churches
+    AET008:      Friends or Quaker
+    AET009:      German Reformed
+    AET010:      Jewish
+    AET011:      Lutheran
+    AET012:      Mennonite
+    AET013:      Methodist
+    AET014:      Moravian
+    AET015:      Presbyterian
+    AET016:      Protestant
+    AET017:      Roman Catholic
+    AET018:      Swedenborgian
+    AET019:      Tunker
+    AET020:      Union
+    AET021:      Unitarian
+    AET022:      Universalist
+    AET023:      Minor Sects
+ 
+Table 43:    Aggregate Accommodations of Churches by Denomination
+Universe:    Churches
+Source code: NT48
+NHGIS code:  AEU
+    AEU001:      Aggregate accommodations of churches >> Baptist
+    AEU002:      Aggregate accommodations of churches >> Christian
+    AEU003:      Aggregate accommodations of churches >> Congregational
+    AEU004:      Aggregate accommodations of churches >> Congregational-Orthodox
+    AEU005:      Aggregate accommodations of churches >> Dutch Reformed
+    AEU006:      Aggregate accommodations of churches >> Episcopal
+    AEU007:      Aggregate accommodations of churches >> Free Churches
+    AEU008:      Aggregate accommodations of churches >> Friends or Quaker
+    AEU009:      Aggregate accommodations of churches >> German Reformed
+    AEU010:      Aggregate accommodations of churches >> Jewish
+    AEU011:      Aggregate accommodations of churches >> Lutheran
+    AEU012:      Aggregate accommodations of churches >> Mennonite
+    AEU013:      Aggregate accommodations of churches >> Methodist
+    AEU014:      Aggregate accommodations of churches >> Moravian
+    AEU015:      Aggregate accommodations of churches >> Presbyterian
+    AEU016:      Aggregate accommodations of churches >> Protestant
+    AEU017:      Aggregate accommodations of churches >> Roman Catholic
+    AEU018:      Aggregate accommodations of churches >> Swedenborgian
+    AEU019:      Aggregate accommodations of churches >> Tunker
+    AEU020:      Aggregate accommodations of churches >> Union
+    AEU021:      Aggregate accommodations of churches >> Unitarian
+    AEU022:      Aggregate accommodations of churches >> Universalist
+    AEU023:      Aggregate accommodations of churches >> Minor Sects
+ 
+Table 44:    Value of Church Property by Denomination
+Universe:    Churches
+Source code: NT49
+NHGIS code:  AEV
+    AEV001:      Value of church property >> Baptist
+    AEV002:      Value of church property >> Christian
+    AEV003:      Value of church property >> Congregational
+    AEV004:      Value of church property >> Congregational-Orthodox
+    AEV005:      Value of church property >> Dutch Reformed
+    AEV006:      Value of church property >> Episcopal
+    AEV007:      Value of church property >> Free Churches
+    AEV008:      Value of church property >> Friends or Quaker
+    AEV009:      Value of church property >> German Reformed
+    AEV010:      Value of church property >> Jewish
+    AEV011:      Value of church property >> Lutheran
+    AEV012:      Value of church property >> Mennonite
+    AEV013:      Value of church property >> Methodist
+    AEV014:      Value of church property >> Moravian
+    AEV015:      Value of church property >> Presbyterian
+    AEV016:      Value of church property >> Protestant
+    AEV017:      Value of church property >> Roman Catholic
+    AEV018:      Value of church property >> Swedenborgian
+    AEV019:      Value of church property >> Tunker
+    AEV020:      Value of church property >> Union
+    AEV021:      Value of church property >> Unitarian
+    AEV022:      Value of church property >> Universalist
+    AEV023:      Value of church property >> Minor Sects
+ 
+Table 45:    Total Number of Churches
+Universe:    Churches
+Source code: NT50
+NHGIS code:  AEX
+    AEX001:      Total
+ 
+Table 46:    Total Aggregate Accommodations of Churches
+Universe:    Churches
+Source code: NT51
+NHGIS code:  AEY
+    AEY001:      Aggregate accommodations of churches
+ 
+Table 47:    Total Value of Church Property
+Universe:    Churches
+Source code: NT52
+NHGIS code:  AEZ
+    AEZ001:      Value of church property
+ 
+Table 48:    Sex by Age
+Universe:    Persons
+Source code: NT53
+NHGIS code:  AE0
+    AE0001:      Male >> Under 1 year of age
+    AE0002:      Male >> 1 to 4 years of age
+    AE0003:      Male >> 5 to 9 years of age
+    AE0004:      Male >> 10 to 14 years of age
+    AE0005:      Male >> 15 to 19 years of age
+    AE0006:      Male >> 20 to 29 years of age
+    AE0007:      Male >> 30 to 39 years of age
+    AE0008:      Male >> 40 to 49 years of age
+    AE0009:      Male >> 50 to 59 years of age
+    AE0010:      Male >> 60 to 69 years of age
+    AE0011:      Male >> 70 to 79 years of age
+    AE0012:      Male >> 80 to 89 years of age
+    AE0013:      Male >> 90 to 99 years of age
+    AE0014:      Male >> 100 years of age and over
+    AE0015:      Male >> Age unknown
+    AE0016:      Female >> Under 1 year of age
+    AE0017:      Female >> 1 to 4 years of age
+    AE0018:      Female >> 5 to 9 years of age
+    AE0019:      Female >> 10 to 14 years of age
+    AE0020:      Female >> 15 to 19 years of age
+    AE0021:      Female >> 20 to 29 years of age
+    AE0022:      Female >> 30 to 39 years of age
+    AE0023:      Female >> 40 to 49 years of age
+    AE0024:      Female >> 50 to 59 years of age
+    AE0025:      Female >> 60 to 69 years of age
+    AE0026:      Female >> 70 to 79 years of age
+    AE0027:      Female >> 80 to 89 years of age
+    AE0028:      Female >> 90 to 99 years of age
+    AE0029:      Female >> 100 years of age and over
+    AE0030:      Female >> Age unknown
+ 
+Table 49:    Sex
+Universe:    Persons
+Source code: NT54
+NHGIS code:  AE1
+    AE1001:      Male
+    AE1002:      Female
+ 
+Table 50:    Age
+Universe:    Persons
+Source code: NT55
+NHGIS code:  AE2
+    AE2001:      Under 1 year of age
+    AE2002:      1 to 4 years of age
+    AE2003:      5 to 9 years of age
+    AE2004:      10 to 14 years of age
+    AE2005:      15 to 19 years of age
+    AE2006:      20 to 29 years of age
+    AE2007:      30 to 39 years of age
+    AE2008:      40 to 49 years of age
+    AE2009:      50 to 59 years of age
+    AE2010:      60 to 69 years of age
+    AE2011:      70 to 79 years of age
+    AE2012:      80 to 89 years of age
+    AE2013:      90 to 99 years of age
+    AE2014:      100 years of age and over
+    AE2015:      Age unknown
+ 
+Table 51:    Total White Population
+Universe:    White Persons
+Source code: NT56
+NHGIS code:  AE3
+    AE3001:      Total
+ 
+Table 52:    Water Transport
+Universe:    Specified Geographic Area
+Source code: NT57
+NHGIS code:  AE4
+    AE4001:      Water transport
+ 
+Table 53:    Rail Transport
+Universe:    Specified Geographic Area
+Source code: NT58
+NHGIS code:  AE5
+    AE5001:      Rail transport
+ 
+--------------------------------------------------------------------------------
+Citation and Use of NHGIS Data
+--------------------------------------------------------------------------------
+ 
+All persons are granted a limited license to use this documentation and the
+accompanying data, subject to the following conditions:
+
+* Publications and research reports employing NHGIS data (either tabular or GIS)
+  must cite it appropriately. The citation should include the following:
+
+    Steven Manson, Jonathan Schroeder, David Van Riper, and Steven Ruggles. 
+    IPUMS National Historical Geographic Information System: Version 12.0 [Database]. 
+    Minneapolis: University of Minnesota. 2017. 
+    http://doi.org/10.18128/D050.V12.0
+
+* Publications and research reports employing school attendance areas data
+  (either tabular or GIS) must cite it appropriately. The citation should
+  include the following:
+
+    The College of William and Mary and the Minnesota Population Center.
+    School Attendance Boundary Information System (SABINS): Version 1.0.
+    Minneapolis, MN: University of Minnesota 2011.
+
+* For policy briefs or articles in the popular press, we recommend that you cite the use of NHGIS data as follows:
+
+    IPUMS NHGIS, University of Minnesota, www.nhgis.org.
+
+* If possible, citations involving school attendance areas should also include
+  the URL for the SABINS site:
+
+    http://www.sabinsdata.org/.
+
+In addition, we request that users send us a copy of any publications, research
+reports, or educational material making use of the data or documentation.
+Printed matter should be sent to:
+
+    NHGIS
+    Minnesota Population Center
+    University of Minnesota
+    50 Willey Hall
+    225 19th Ave S
+    Minneapolis, MN 55455
+
+Send electronic material to: nhgis@umn.edu

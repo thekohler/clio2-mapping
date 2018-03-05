@@ -1,0 +1,36 @@
+GISJOIN,YEAR,STATE,STATEA,COUNTYA,AREANAME,AE7001
+"G010","1850","Alabama","010",,"Alabama",5
+"G050","1850","Arkansas","050",,"Arkansas",6
+"G060","1850","California","060",,"California",1
+"G090","1850","Connecticut","090",,"Connecticut",31
+"G100","1850","Delaware","100",,"Delaware",20
+"G120","1850","Florida","120",,"Florida",4
+"G130","1850","Georgia","130",,"Georgia",4
+"G170","1850","Illinois","170",,"Illinois",8
+"G180","1850","Indiana","180",,"Indiana",11
+"G190","1850","Iowa","190",,"Iowa",6
+"G210","1850","Kentucky","210",,"Kentucky",9
+"G220","1850","Louisiana","220",,"Louisianna",15
+"G230","1850","Maine","230",,"Maine",12
+"G240","1850","Maryland","240",,"Maryland",19
+"G250","1850","Massachusetts","250",,"Massachusetts",32
+"G260","1850","Michigan","260",,"Michigan",12
+"G275","1850","Minnesota Territory","275",,"Minnesota",6
+"G280","1850","Mississippi","280",,"Mississippi",5
+"G290","1850","Missouri","290",,"Missouri",6
+"G330","1850","New Hampshire","330",,"New Hampshire",16
+"G340","1850","New Jersey","340",,"New Jersey",44
+"G355","1850","New Mexico Territory","355",,"New Mexico",6
+"G360","1850","New York","360",,"New York",29
+"G370","1850","North Carolina","370",,"North Carolina",3
+"G390","1850","Ohio","390",,"Ohio",20
+"G413","1850","Oregon Territory","413",,"Oregon",7
+"G420","1850","Pennsylvania","420",,"Pennsylvania",27
+"G440","1850","Rhode Island","440",,"Rhode Island",31
+"G450","1850","South Carolina","450",,"South Carolina",5
+"G470","1850","Tennessee","470",,"Tennessee",5
+"G480","1850","Texas","480",,"Texas",1
+"G495","1850","Utah Territory","495",,"Utah",7
+"G500","1850","Vermont","500",,"Vermont",15
+"G510","1850","Virginia","510",,"Virginia",8
+"G550","1850","Wisconsin","550",,"Wisconsin",10

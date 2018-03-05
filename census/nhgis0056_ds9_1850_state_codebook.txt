@@ -1,0 +1,300 @@
+--------------------------------------------------------------------------------
+Codebook for NHGIS data file 'nhgis0056_ds9_1850_state'
+--------------------------------------------------------------------------------
+ 
+Contents
+    - Data Summary
+    - Data Dictionary
+    - Citation and Use
+ 
+Additional documentation on NHGIS data sources is available at: 
+    https://www.nhgis.org/documentation/tabular-data 
+ 
+--------------------------------------------------------------------------------
+Data Summary
+--------------------------------------------------------------------------------
+ 
+Year:             1850
+Geographic level: State
+Dataset:          1850 Census: Agriculture Data [US, States & Counties]
+   NHGIS code:    1850_cAg
+   NHGIS ID:      ds9
+ 
+Tables:
+ 
+1. Total Number of Farms
+   Universe:    Farms
+   Source code: NT1
+   NHGIS code:  ADF
+ 
+2. Improved/Unimproved Land in Farms
+   Universe:    Farms
+   Source code: NT2
+   NHGIS code:  ADI
+ 
+3. Value of Farms, Implements and Machinery
+   Universe:    Farms
+   Source code: NT3
+   NHGIS code:  ADJ
+ 
+4. Livestock
+   Universe:    Farms
+   Source code: NT4
+   NHGIS code:  ADK
+ 
+5. Total Value of Livestock
+   Universe:    Farms
+   Source code: NT5
+   NHGIS code:  ADL
+ 
+6. Farm Productions
+   Universe:    Farms
+   Source code: NT6
+   NHGIS code:  ADM
+ 
+7. Value of Non-Field-Crop Product Groups
+   Universe:    Farms
+   Source code: NT7
+   NHGIS code:  ADN
+ 
+8. Price of Farm Productions, 1859/1860
+   Universe:    Farms
+   Source code: NT8
+   NHGIS code:  ADO
+ 
+9. Estimated Value of Farm Productions
+   Universe:    Farms
+   Source code: NT9
+   NHGIS code:  ADP
+ 
+10. Estimated Value of Farm Product Groups
+    Universe:    Farms
+    Source code: NT10
+    NHGIS code:  ADG
+ 
+11. Estimated Value of Total Agricultural Output
+    Universe:    Farms
+    Source code: NT11
+    NHGIS code:  ADH
+ 
+--------------------------------------------------------------------------------
+Data Dictionary
+--------------------------------------------------------------------------------
+ 
+Context Fields 
+    GISJOIN:     GIS Join Match Code
+    YEAR:        Data File Year
+    STATE:       State Name
+    STATEA:      State Code
+    COUNTYA:     County Code
+    AREANAME:    Area name
+ 
+Table 1:     Total Number of Farms
+Universe:    Farms
+Source code: NT1
+NHGIS code:  ADF
+    ADF001:      Total
+ 
+Table 2:     Improved/Unimproved Land in Farms
+Universe:    Farms
+Source code: NT2
+NHGIS code:  ADI
+    ADI001:      Improved
+    ADI002:      Unimproved
+ 
+Table 3:     Value of Farms, Implements and Machinery
+Universe:    Farms
+Source code: NT3
+NHGIS code:  ADJ
+    ADJ001:      Farms
+    ADJ002:      Implements and machinery
+ 
+Table 4:     Livestock
+Universe:    Farms
+Source code: NT4
+NHGIS code:  ADK
+    ADK001:      Horses
+    ADK002:      Asses and mules
+    ADK003:      Milch cows
+    ADK004:      Working oxen
+    ADK005:      Other cattle
+    ADK006:      Sheep
+    ADK007:      Pigs
+ 
+Table 5:     Total Value of Livestock
+Universe:    Farms
+Source code: NT5
+NHGIS code:  ADL
+    ADL001:      Value of livestock
+ 
+Table 6:     Farm Productions
+Universe:    Farms
+Source code: NT6
+NHGIS code:  ADM
+    ADM001:      Cereal grains: Wheat (bushels)
+    ADM002:      Cereal grains: Rye (bushels)
+    ADM003:      Cereal grains: Indian corn (bushels)
+    ADM004:      Cereal grains: Oats (bushels)
+    ADM005:      Various crops: Rice (pounds)
+    ADM006:      Various crops: Tobacco (pounds)
+    ADM007:      Various crops: Ginned cotton (400-pound bales)
+    ADM008:      Various crops: Wool (pounds)
+    ADM009:      Various crops: Peas and beans (bushels)
+    ADM010:      Various crops: Irish potatoes (bushels)
+    ADM011:      Various crops: Sweet potatoes (bushels)
+    ADM012:      Various crops: Barley (bushels)
+    ADM013:      Various crops: Buckwheat (bushels)
+    ADM014:      Flax, silk, sugar, etc.: Wine (gallons)
+    ADM015:      Flax, silk, sugar, etc.: Butter (pounds)
+    ADM016:      Flax, silk, sugar, etc.: Cheese (pounds)
+    ADM017:      Flax, silk, sugar, etc.: Hay (tons)
+    ADM018:      Flax, silk, sugar, etc.: Clover seed (bushels)
+    ADM019:      Flax, silk, sugar, etc.: Grass seed (bushels)
+    ADM020:      Flax, silk, sugar, etc.: Hops (pounds)
+    ADM021:      Flax, silk, sugar, etc.: Dew-rotted hemp (tons)
+    ADM022:      Flax, silk, sugar, etc.: Water-rotted hemp (tons)
+    ADM023:      Flax, silk, sugar, etc.: Flax (pounds)
+    ADM024:      Flax, silk, sugar, etc.: Flaxseed (bushels)
+    ADM025:      Flax, silk, sugar, etc.: Silk cocoon (pounds)
+    ADM026:      Flax, silk, sugar, etc.: Maple sugar (pounds)
+    ADM027:      Flax, silk, sugar, etc.: Cane sugar (1000-pound hogsheads)
+    ADM028:      Flax, silk, sugar, etc.: Maple molasses (gallons)
+    ADM029:      Flax, silk, sugar, etc.: Cane molasses (gallons)
+    ADM030:      Flax, silk, sugar, etc.: Beeswax and Honey(pounds)
+ 
+Table 7:     Value of Non-Field-Crop Product Groups
+Universe:    Farms
+Source code: NT7
+NHGIS code:  ADN
+    ADN001:      Orchards
+    ADN002:      Market gardens
+    ADN003:      Homemade manufactures
+    ADN004:      Animals slaughtered
+ 
+Table 8:     Price of Farm Productions, 1859/1860
+Universe:    Farms
+Source code: NT8
+NHGIS code:  ADO
+    ADO001:      Price >> Cereal grains: Wheat (bushels)
+    ADO002:      Price >> Cereal grains: Rye (bushels)
+    ADO003:      Price >> Cereal grains: Indian corn (bushels)
+    ADO004:      Price >> Cereal grains: Oats (bushels)
+    ADO005:      Price >> Various crops: Rice (pounds)
+    ADO006:      Price >> Various crops: Tobacco (pounds)
+    ADO007:      Price >> Various crops: Ginned cotton (400-pound bales)
+    ADO008:      Price >> Various crops: Wool (pounds)
+    ADO009:      Price >> Various crops: Peas and beans (bushels)
+    ADO010:      Price >> Various crops: Irish potatoes (bushels)
+    ADO011:      Price >> Various crops: Sweet potatoes (bushels)
+    ADO012:      Price >> Various crops: Barley (bushels)
+    ADO013:      Price >> Various crops: Buckwheat (bushels)
+    ADO014:      Price >> Flax, silk, sugar, etc.: Wine (gallons)
+    ADO015:      Price >> Flax, silk, sugar, etc.: Butter (pounds)
+    ADO016:      Price >> Flax, silk, sugar, etc.: Cheese (pounds)
+    ADO017:      Price >> Flax, silk, sugar, etc.: Hay (tons)
+    ADO018:      Price >> Flax, silk, sugar, etc.: Clover seed (bushels)
+    ADO019:      Price >> Flax, silk, sugar, etc.: Grass seed (bushels)
+    ADO020:      Price >> Flax, silk, sugar, etc.: Hops (pounds)
+    ADO021:      Price >> Flax, silk, sugar, etc.: Dew-rotted hemp (tons)
+    ADO022:      Price >> Flax, silk, sugar, etc.: Water-rotted hemp (tons)
+    ADO023:      Price >> Flax, silk, sugar, etc.: Flax (pounds)
+    ADO024:      Price >> Flax, silk, sugar, etc.: Flaxseed (bushels)
+    ADO025:      Price >> Flax, silk, sugar, etc.: Silk cocoon (pounds)
+    ADO026:      Price >> Flax, silk, sugar, etc.: Maple sugar (pounds)
+    ADO027:      Price >> Flax, silk, sugar, etc.: Cane sugar (1000-pound hogsheads)
+    ADO028:      Price >> Flax, silk, sugar, etc.: Maple molasses (gallons)
+    ADO029:      Price >> Flax, silk, sugar, etc.: Cane molasses (gallons)
+    ADO030:      Price >> Flax, silk, sugar, etc.: Beeswax and Honey(pounds)
+ 
+Table 9:     Estimated Value of Farm Productions
+Universe:    Farms
+Source code: NT9
+NHGIS code:  ADP
+    ADP001:      Estimated value >> Cereal grains: Wheat (bushels)
+    ADP002:      Estimated value >> Cereal grains: Rye (bushels)
+    ADP003:      Estimated value >> Cereal grains: Indian corn (bushels)
+    ADP004:      Estimated value >> Cereal grains: Oats (bushels)
+    ADP005:      Estimated value >> Various crops: Rice (pounds)
+    ADP006:      Estimated value >> Various crops: Tobacco (pounds)
+    ADP007:      Estimated value >> Various crops: Ginned cotton (400-pound bales)
+    ADP008:      Estimated value >> Various crops: Wool (pounds)
+    ADP009:      Estimated value >> Various crops: Peas and beans (bushels)
+    ADP010:      Estimated value >> Various crops: Irish potatoes (bushels)
+    ADP011:      Estimated value >> Various crops: Sweet potatoes (bushels)
+    ADP012:      Estimated value >> Various crops: Barley (bushels)
+    ADP013:      Estimated value >> Various crops: Buckwheat (bushels)
+    ADP014:      Estimated value >> Flax, silk, sugar, etc.: Wine (gallons)
+    ADP015:      Estimated value >> Flax, silk, sugar, etc.: Butter (pounds)
+    ADP016:      Estimated value >> Flax, silk, sugar, etc.: Cheese (pounds)
+    ADP017:      Estimated value >> Flax, silk, sugar, etc.: Hay (tons)
+    ADP018:      Estimated value >> Flax, silk, sugar, etc.: Clover seed (bushels)
+    ADP019:      Estimated value >> Flax, silk, sugar, etc.: Grass seed (bushels)
+    ADP020:      Estimated value >> Flax, silk, sugar, etc.: Hops (pounds)
+    ADP021:      Estimated value >> Flax, silk, sugar, etc.: Dew-rotted hemp (tons)
+    ADP022:      Estimated value >> Flax, silk, sugar, etc.: Water-rotted hemp (tons)
+    ADP023:      Estimated value >> Flax, silk, sugar, etc.: Flax (pounds)
+    ADP024:      Estimated value >> Flax, silk, sugar, etc.: Flaxseed (bushels)
+    ADP025:      Estimated value >> Flax, silk, sugar, etc.: Silk cocoon (pounds)
+    ADP026:      Estimated value >> Flax, silk, sugar, etc.: Maple sugar (pounds)
+    ADP027:      Estimated value >> Flax, silk, sugar, etc.: Cane sugar (1000-pound hogsheads)
+    ADP028:      Estimated value >> Flax, silk, sugar, etc.: Maple molasses (gallons)
+    ADP029:      Estimated value >> Flax, silk, sugar, etc.: Cane molasses (gallons)
+    ADP030:      Estimated value >> Flax, silk, sugar, etc.: Beeswax and Honey(pounds)
+ 
+Table 10:    Estimated Value of Farm Product Groups
+Universe:    Farms
+Source code: NT10
+NHGIS code:  ADG
+    ADG001:      Estimated value >> Crop, orchard, and market garden products
+    ADG002:      Estimated value >> Home manufactures and animals slaughtered
+ 
+Table 11:    Estimated Value of Total Agricultural Output
+Universe:    Farms
+Source code: NT11
+NHGIS code:  ADH
+    ADH001:      Estimated value of total agricultural output
+ 
+--------------------------------------------------------------------------------
+Citation and Use of NHGIS Data
+--------------------------------------------------------------------------------
+ 
+All persons are granted a limited license to use this documentation and the
+accompanying data, subject to the following conditions:
+
+* Publications and research reports employing NHGIS data (either tabular or GIS)
+  must cite it appropriately. The citation should include the following:
+
+    Steven Manson, Jonathan Schroeder, David Van Riper, and Steven Ruggles. 
+    IPUMS National Historical Geographic Information System: Version 12.0 [Database]. 
+    Minneapolis: University of Minnesota. 2017. 
+    http://doi.org/10.18128/D050.V12.0
+
+* Publications and research reports employing school attendance areas data
+  (either tabular or GIS) must cite it appropriately. The citation should
+  include the following:
+
+    The College of William and Mary and the Minnesota Population Center.
+    School Attendance Boundary Information System (SABINS): Version 1.0.
+    Minneapolis, MN: University of Minnesota 2011.
+
+* For policy briefs or articles in the popular press, we recommend that you cite the use of NHGIS data as follows:
+
+    IPUMS NHGIS, University of Minnesota, www.nhgis.org.
+
+* If possible, citations involving school attendance areas should also include
+  the URL for the SABINS site:
+
+    http://www.sabinsdata.org/.
+
+In addition, we request that users send us a copy of any publications, research
+reports, or educational material making use of the data or documentation.
+Printed matter should be sent to:
+
+    NHGIS
+    Minnesota Population Center
+    University of Minnesota
+    50 Willey Hall
+    225 19th Ave S
+    Minneapolis, MN 55455
+
+Send electronic material to: nhgis@umn.edu

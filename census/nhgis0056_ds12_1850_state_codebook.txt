@@ -1,0 +1,803 @@
+--------------------------------------------------------------------------------
+Codebook for NHGIS data file 'nhgis0056_ds12_1850_state'
+--------------------------------------------------------------------------------
+ 
+Contents
+    - Data Summary
+    - Data Dictionary
+    - Citation and Use
+ 
+Additional documentation on NHGIS data sources is available at: 
+    https://www.nhgis.org/documentation/tabular-data 
+ 
+--------------------------------------------------------------------------------
+Data Summary
+--------------------------------------------------------------------------------
+ 
+Year:             1850
+Geographic level: State
+Dataset:          1850 Census: Population, Agriculture & Other Data [US & States]
+   NHGIS code:    1850_sPAX
+   NHGIS ID:      ds12
+ 
+Tables:
+ 
+1. Native-Born White and Free Colored by Nativity by Race by Sex
+   Universe:    Native White and Free Colored Persons
+   Source code: NT1
+   NHGIS code:  AE8
+ 
+2. White and Free Colored Persons Born in the State by Race
+   Universe:    White and Free Colored Persons Born in the State
+   Source code: NT2
+   NHGIS code:  AFJ
+ 
+3. White Males Born out of State
+   Universe:    White Males Born out of State
+   Source code: NT4
+   NHGIS code:  AF4
+ 
+4. Foreign-Born Whites and Free Colored by Race by Sex
+   Universe:    Foreign-Born White and Free Colored Persons
+   Source code: NT5
+   NHGIS code:  AGF
+ 
+5. Total Foreign-Born White and Free Colored by Race
+   Universe:    Foreign-Born White and Free Colored Persons
+   Source code: NT6
+   NHGIS code:  AGM
+ 
+6. White and Free Colored Birthplace Unknown by Race by Sex
+   Universe:    White and Free Colored Persons Birthplace Unknown
+   Source code: NT7
+   NHGIS code:  AGN
+ 
+7. White and Free Colored Birthplace Unknown by Race
+   Universe:    White and Free Colored Persons Birthplace Unknown
+   Source code: NT8
+   NHGIS code:  AGO
+ 
+8. Total Free Colored Born out of State
+   Universe:    Free Colored Persons Born Out of State
+   Source code: NT10
+   NHGIS code:  AE9
+ 
+9. Nativity
+   Universe:    Persons
+   Source code: NT11
+   NHGIS code:  AFA
+ 
+10. Place of Birth
+    Universe:    Persons
+    Source code: NT12
+    NHGIS code:  AFB
+ 
+11. Number of Families
+    Universe:    Families
+    Source code: NT13
+    NHGIS code:  AFC
+ 
+12. Average Persons per Family
+    Universe:    Families
+    Source code: NT14
+    NHGIS code:  AFD
+ 
+13. Number of Slaves per Slave Holder
+    Universe:    Slaveholders
+    Source code: NT15
+    NHGIS code:  AFE
+ 
+14. Total Number of Slave Holders
+    Universe:    Slaveholders
+    Source code: NT16
+    NHGIS code:  AFF
+ 
+15. Employed Free Males 15 Years of Age and Over by Occupation
+    Universe:    Employed Free Males 15 Years and Over
+    Source code: NT17
+    NHGIS code:  AFG
+ 
+16. Employed Free Males Over 15 Years of Age and Over
+    Universe:    Employed Free Males 15 Years and Over
+    Source code: NT18
+    NHGIS code:  AFH
+ 
+17. Average Wages by Occupation
+    Universe:    Employed Persons
+    Source code: NT19
+    NHGIS code:  AFI
+ 
+18. Average Weekly Board to Laboring Men
+    Universe:    Male Laborers
+    Source code: NT20
+    NHGIS code:  AFK
+ 
+19. Total Banks and Branches
+    Universe:    Banks and Branches
+    Source code: NT21
+    NHGIS code:  AFL
+ 
+20. Amount of Assets in Banks
+    Universe:    Banks
+    Source code: NT22
+    NHGIS code:  AFM
+ 
+21. Total Money in Circulation
+    Universe:    Banks
+    Source code: NT23
+    NHGIS code:  AFN
+ 
+22. Total Value of Real Estate and Personal Property
+    Universe:    Real Estate and Personal Property
+    Source code: NT24
+    NHGIS code:  AFO
+ 
+23. Total Manufacturing Establishments
+    Universe:    Manufacturing Establishments
+    Source code: NT25
+    NHGIS code:  AFP
+ 
+24. Total Capital Invested in Manufacturing
+    Universe:    Manufacturing Establishments
+    Source code: NT26
+    NHGIS code:  AFQ
+ 
+25. Average Number of Persons Over 16 Years of Age Employed in Manufacturing by Sex
+    Universe:    Employed Persons Over 16 Years of Age in Manufacturing
+    Source code: NT27
+    NHGIS code:  AFR
+ 
+26. Total Annual Wages in Manufacturing
+    Universe:    Manufacturing Establishments
+    Source code: NT28
+    NHGIS code:  AFS
+ 
+27. Total Value of Raw Materials Used in Manufacturing
+    Universe:    Manufacturing Establishments
+    Source code: NT29
+    NHGIS code:  AFT
+ 
+28. Total Value of Products in Manufacturing
+    Universe:    Manufacturing Establishments
+    Source code: NT30
+    NHGIS code:  AFU
+ 
+29. Total Persons and Establishments Engaged in Manufacturing
+    Universe:    Manufacturing Establishments
+    Source code: NT31
+    NHGIS code:  AFV
+ 
+30. Total Capital Invested in Manufacturing
+    Universe:    Manufacturing Establishments
+    Source code: NT32
+    NHGIS code:  AFW
+ 
+31. Total Value of Raw Materials Used in Manufacturing
+    Universe:    Manufacturing Establishments
+    Source code: NT33
+    NHGIS code:  AFX
+ 
+32. Persons Employed in Manufacturing by Sex
+    Universe:    Employed Persons in Manufacturing Establishments
+    Source code: NT34
+    NHGIS code:  AFY
+ 
+33. Total Annual Wages in Manufacturing
+    Universe:    Manufacturing Establishments
+    Source code: NT35
+    NHGIS code:  AFZ
+ 
+34. Total Value of Annual Product in Manufacturing
+    Universe:    Manufacturing Establishments
+    Source code: NT36
+    NHGIS code:  AF0
+ 
+35. Percent Profit in Manufacturing
+    Universe:    Manufacturing Establishments
+    Source code: NT37
+    NHGIS code:  AF1
+ 
+36. Total Number of Farms, Plantations, Etc
+    Universe:    Farms, Plantations, Etc.
+    Source code: NT38
+    NHGIS code:  AF2
+ 
+37. Average Number of Acres per Farm
+    Universe:    Farms
+    Source code: NT39
+    NHGIS code:  AF3
+ 
+38. Average Value of Farms
+    Universe:    Farms
+    Source code: NT40
+    NHGIS code:  AF5
+ 
+39. Average Value of Farm Implements and Machinery
+    Universe:    Farms
+    Source code: NT41
+    NHGIS code:  AF6
+ 
+40. Average Value of Farm, Farm Implements and Machinery
+    Universe:    Farms
+    Source code: NT42
+    NHGIS code:  AF7
+ 
+41. Newspapers by Frequency of Issue
+    Universe:    Newspapers
+    Source code: NT43
+    NHGIS code:  AF8
+ 
+42. Annual Number of Copies by Frequency of Newspaper Issue
+    Universe:    Newspapers
+    Source code: NT44
+    NHGIS code:  AF9
+ 
+43. Aggregate Number of Newspapers
+    Universe:    Newspapers
+    Source code: NT45
+    NHGIS code:  AGA
+ 
+44. Aggregate Annual Number of Copies of Newspapers
+    Universe:    Newspapers
+    Source code: NT46
+    NHGIS code:  AGB
+ 
+45. Number of Newspapers by Publication Subject Coverage
+    Universe:    Newspapers
+    Source code: NT47
+    NHGIS code:  AGC
+ 
+46. Circulation of Newspapers by Publication Subject Coverage
+    Universe:    Newspapers
+    Source code: NT48
+    NHGIS code:  AGD
+ 
+47. Annual Number of Newspaper Copies by Publication Subject Coverage
+    Universe:    Newspapers
+    Source code: NT49
+    NHGIS code:  AGE
+ 
+48. Aggregate Circulation of Newspapers
+    Universe:    Newspapers
+    Source code: NT50
+    NHGIS code:  AGG
+ 
+49. Types of Libraries
+    Universe:    Libraries
+    Source code: NT51
+    NHGIS code:  AGH
+ 
+50. Number of Volumes in Types of Libraries
+    Universe:    Libraries
+    Source code: NT52
+    NHGIS code:  AGI
+ 
+51. Total Number of Libraries
+    Universe:    Libraries
+    Source code: NT53
+    NHGIS code:  AGJ
+ 
+52. Total Number of Volumes in Libraries
+    Universe:    Libraries
+    Source code: NT54
+    NHGIS code:  AGK
+ 
+53. Area (Square Miles)
+    Universe:    Specified Geographic Area
+    Source code: NT55
+    NHGIS code:  AGL
+ 
+--------------------------------------------------------------------------------
+Data Dictionary
+--------------------------------------------------------------------------------
+ 
+Context Fields 
+    GISJOIN:     GIS Join Match Code
+    YEAR:        Data File Year
+    STATE:       State Name
+    STATEA:      State Code
+    AREANAME:    Area name
+ 
+Table 1:     Native-Born White and Free Colored by Nativity by Race by Sex
+Universe:    Native White and Free Colored Persons
+Source code: NT1
+NHGIS code:  AE8
+    AE8001:      Born in the state >> White >> Male
+    AE8002:      Born in the state >> White >> Female
+    AE8003:      Born in the state >> Free Colored >> Male
+    AE8004:      Born in the state >> Free Colored >> Female
+    AE8005:      Born out of state but in the United States >> White >> Male
+    AE8006:      Born out of state but in the United States >> White >> Female
+    AE8007:      Born out of state but in the United States >> Free Colored >> Male
+    AE8008:      Born out of state but in the United States >> Free Colored >> Female
+ 
+Table 2:     White and Free Colored Persons Born in the State by Race
+Universe:    White and Free Colored Persons Born in the State
+Source code: NT2
+NHGIS code:  AFJ
+    AFJ001:      White
+    AFJ002:      Free Colored
+ 
+Table 3:     White Males Born out of State
+Universe:    White Males Born out of State
+Source code: NT4
+NHGIS code:  AF4
+    AF4001:      Total
+ 
+Table 4:     Foreign-Born Whites and Free Colored by Race by Sex
+Universe:    Foreign-Born White and Free Colored Persons
+Source code: NT5
+NHGIS code:  AGF
+    AGF001:      White >> Male
+    AGF002:      White >> Female
+    AGF003:      Free Colored >> Male
+    AGF004:      Free Colored >> Female
+ 
+Table 5:     Total Foreign-Born White and Free Colored by Race
+Universe:    Foreign-Born White and Free Colored Persons
+Source code: NT6
+NHGIS code:  AGM
+    AGM001:      White
+    AGM002:      Free Colored
+ 
+Table 6:     White and Free Colored Birthplace Unknown by Race by Sex
+Universe:    White and Free Colored Persons Birthplace Unknown
+Source code: NT7
+NHGIS code:  AGN
+    AGN001:      White >> Male
+    AGN002:      White >> Female
+    AGN003:      Free Colored >> Male
+    AGN004:      Free Colored >> Female
+ 
+Table 7:     White and Free Colored Birthplace Unknown by Race
+Universe:    White and Free Colored Persons Birthplace Unknown
+Source code: NT8
+NHGIS code:  AGO
+    AGO001:      White
+    AGO002:      Free Colored
+ 
+Table 8:     Total Free Colored Born out of State
+Universe:    Free Colored Persons Born Out of State
+Source code: NT10
+NHGIS code:  AE9
+    AE9001:      Total
+ 
+Table 9:     Nativity
+Universe:    Persons
+Source code: NT11
+NHGIS code:  AFA
+    AFA001:      Native-born
+    AFA002:      Foreign-born
+ 
+Table 10:    Place of Birth
+Universe:    Persons
+Source code: NT12
+NHGIS code:  AFB
+    AFB001:      Native-born: Alabama
+    AFB002:      Native-born: Arkansas
+    AFB003:      Native-born: California
+    AFB004:      Native-born: District of Columbia
+    AFB005:      Native-born: Connecticut
+    AFB006:      Native-born: Delaware
+    AFB007:      Native-born: Florida
+    AFB008:      Native-born: Georgia
+    AFB009:      Native-born: Illinois
+    AFB010:      Native-born: Indiana
+    AFB011:      Native-born: Iowa
+    AFB012:      Native-born: Kentucky
+    AFB013:      Native-born: Louisiana
+    AFB014:      Native-born: Maine
+    AFB015:      Native-born: Maryland
+    AFB016:      Native-born: Massachusetts
+    AFB017:      Native-born: Michigan
+    AFB018:      Native-born: Mississippi
+    AFB019:      Native-born: Missouri
+    AFB020:      Native-born: New Hampshire
+    AFB021:      Native-born: New Jersey
+    AFB022:      Native-born: New York
+    AFB023:      Native-born: North Carolina
+    AFB024:      Native-born: Ohio
+    AFB025:      Native-born: Pennsylvania
+    AFB026:      Native-born: Rhode Island
+    AFB027:      Native-born: South Carolina
+    AFB028:      Native-born: Tennessee
+    AFB029:      Native-born: Texas
+    AFB030:      Native-born: Vermont
+    AFB031:      Native-born: Virginia
+    AFB032:      Native-born: Wisconsin
+    AFB033:      Native-born: Territories
+    AFB034:      Foreign-born: England
+    AFB035:      Foreign-born: Scotland
+    AFB036:      Foreign-born: Wales
+    AFB037:      Foreign-born: Ireland
+    AFB038:      Foreign-born: Prussia
+    AFB039:      Foreign-born: Germany
+    AFB040:      Foreign-born: Austria
+    AFB041:      Foreign-born: Holland
+    AFB042:      Foreign-born: Norway
+    AFB043:      Foreign-born: Denmark
+    AFB044:      Foreign-born: Sweden
+    AFB045:      Foreign-born: Belgium
+    AFB046:      Foreign-born: Switzerland
+    AFB047:      Foreign-born: Russia
+    AFB048:      Foreign-born: France
+    AFB049:      Foreign-born: Spain
+    AFB050:      Foreign-born: Portugal
+    AFB051:      Foreign-born: Italy
+    AFB052:      Foreign-born: Sardinia
+    AFB053:      Foreign-born: Greece
+    AFB054:      Foreign-born: Turkey
+    AFB055:      Foreign-born: China
+    AFB056:      Foreign-born: Asia
+    AFB057:      Foreign-born: Sandwich Islands
+    AFB058:      Foreign-born: Africa
+    AFB059:      Foreign-born: British America
+    AFB060:      Foreign-born: Mexico
+    AFB061:      Foreign-born: Central America
+    AFB062:      Foreign-born: South America
+    AFB063:      Foreign-born: West Indies
+    AFB064:      Foreign-born: Other Countries
+    AFB065:      Birthplace unknown
+ 
+Table 11:    Number of Families
+Universe:    Families
+Source code: NT13
+NHGIS code:  AFC
+    AFC001:      Total
+ 
+Table 12:    Average Persons per Family
+Universe:    Families
+Source code: NT14
+NHGIS code:  AFD
+    AFD001:      Total
+ 
+Table 13:    Number of Slaves per Slave Holder
+Universe:    Slaveholders
+Source code: NT15
+NHGIS code:  AFE
+    AFE001:      1 slave
+    AFE002:      2 to 4 slaves
+    AFE003:      5 to 9 slaves
+    AFE004:      10 to 19 slaves
+    AFE005:      20 to 49 slaves
+    AFE006:      50 to 99 slaves
+    AFE007:      100 to 199 slaves
+    AFE008:      200 to 299 slaves
+    AFE009:      300 to 499 slaves
+    AFE010:      500 to 999 slaves
+    AFE011:      1000 slaves and over
+ 
+Table 14:    Total Number of Slave Holders
+Universe:    Slaveholders
+Source code: NT16
+NHGIS code:  AFF
+    AFF001:      Total
+ 
+Table 15:    Employed Free Males 15 Years of Age and Over by Occupation
+Universe:    Employed Free Males 15 Years and Over
+Source code: NT17
+NHGIS code:  AFG
+    AFG001:      Commerce, trade manufactures, the mechanical arts, and mining
+    AFG002:      Agriculture
+    AFG003:      Nonagricultural labor
+    AFG004:      Army
+    AFG005:      Sea and river navigation
+    AFG006:      Law, medicine and divinity
+    AFG007:      Other pursuits requiring education
+    AFG008:      Government and civil service
+    AFG009:      Domestic servants
+    AFG010:      Other occupations
+ 
+Table 16:    Employed Free Males Over 15 Years of Age and Over
+Universe:    Employed Free Males 15 Years and Over
+Source code: NT18
+NHGIS code:  AFH
+    AFH001:      Total
+ 
+Table 17:    Average Wages by Occupation
+Universe:    Employed Persons
+Source code: NT19
+NHGIS code:  AFI
+    AFI001:      Wages >> Farmhand (with board)
+    AFI002:      Wages >> Day laborer (with board)
+    AFI003:      Wages >> Day laborer (without board)
+    AFI004:      Wages >> Carpenter (without board)
+    AFI005:      Wages >> Female domestic (with board)
+ 
+Table 18:    Average Weekly Board to Laboring Men
+Universe:    Male Laborers
+Source code: NT20
+NHGIS code:  AFK
+    AFK001:      Weekly board to laboring men
+ 
+Table 19:    Total Banks and Branches
+Universe:    Banks and Branches
+Source code: NT21
+NHGIS code:  AFL
+    AFL001:      Total
+ 
+Table 20:    Amount of Assets in Banks
+Universe:    Banks
+Source code: NT22
+NHGIS code:  AFM
+    AFM001:      Capital
+    AFM002:      Loans
+    AFM003:      Specie
+    AFM004:      Deposits
+ 
+Table 21:    Total Money in Circulation
+Universe:    Banks
+Source code: NT23
+NHGIS code:  AFN
+    AFN001:      Money in circulation
+ 
+Table 22:    Total Value of Real Estate and Personal Property
+Universe:    Real Estate and Personal Property
+Source code: NT24
+NHGIS code:  AFO
+    AFO001:      Value of real estate and personal property
+ 
+Table 23:    Total Manufacturing Establishments
+Universe:    Manufacturing Establishments
+Source code: NT25
+NHGIS code:  AFP
+    AFP001:      Total
+ 
+Table 24:    Total Capital Invested in Manufacturing
+Universe:    Manufacturing Establishments
+Source code: NT26
+NHGIS code:  AFQ
+    AFQ001:      Capital invested in manufacturing
+ 
+Table 25:    Average Number of Persons Over 16 Years of Age Employed in Manufacturing by Sex
+Universe:    Employed Persons Over 16 Years of Age in Manufacturing
+Source code: NT27
+NHGIS code:  AFR
+    AFR001:      Male
+    AFR002:      Female
+ 
+Table 26:    Total Annual Wages in Manufacturing
+Universe:    Manufacturing Establishments
+Source code: NT28
+NHGIS code:  AFS
+    AFS001:      Annual wages
+ 
+Table 27:    Total Value of Raw Materials Used in Manufacturing
+Universe:    Manufacturing Establishments
+Source code: NT29
+NHGIS code:  AFT
+    AFT001:      Value of raw materials
+ 
+Table 28:    Total Value of Products in Manufacturing
+Universe:    Manufacturing Establishments
+Source code: NT30
+NHGIS code:  AFU
+    AFU001:      Value of products
+ 
+Table 29:    Total Persons and Establishments Engaged in Manufacturing
+Universe:    Manufacturing Establishments
+Source code: NT31
+NHGIS code:  AFV
+    AFV001:      Total
+ 
+Table 30:    Total Capital Invested in Manufacturing
+Universe:    Manufacturing Establishments
+Source code: NT32
+NHGIS code:  AFW
+    AFW001:      Capital invested in manufacturing
+ 
+Table 31:    Total Value of Raw Materials Used in Manufacturing
+Universe:    Manufacturing Establishments
+Source code: NT33
+NHGIS code:  AFX
+    AFX001:      Value of raw materials
+ 
+Table 32:    Persons Employed in Manufacturing by Sex
+Universe:    Employed Persons in Manufacturing Establishments
+Source code: NT34
+NHGIS code:  AFY
+    AFY001:      Male
+    AFY002:      Female
+ 
+Table 33:    Total Annual Wages in Manufacturing
+Universe:    Manufacturing Establishments
+Source code: NT35
+NHGIS code:  AFZ
+    AFZ001:      Annual wages
+ 
+Table 34:    Total Value of Annual Product in Manufacturing
+Universe:    Manufacturing Establishments
+Source code: NT36
+NHGIS code:  AF0
+    AF0001:      Value of annual product
+ 
+Table 35:    Percent Profit in Manufacturing
+Universe:    Manufacturing Establishments
+Source code: NT37
+NHGIS code:  AF1
+    AF1001:      Profit in manufacturing
+ 
+Table 36:    Total Number of Farms, Plantations, Etc
+Universe:    Farms, Plantations, Etc.
+Source code: NT38
+NHGIS code:  AF2
+    AF2001:      Total
+ 
+Table 37:    Average Number of Acres per Farm
+Universe:    Farms
+Source code: NT39
+NHGIS code:  AF3
+    AF3001:      Total
+ 
+Table 38:    Average Value of Farms
+Universe:    Farms
+Source code: NT40
+NHGIS code:  AF5
+    AF5001:      Value of farms
+ 
+Table 39:    Average Value of Farm Implements and Machinery
+Universe:    Farms
+Source code: NT41
+NHGIS code:  AF6
+    AF6001:      Value of farm implements and machinery
+ 
+Table 40:    Average Value of Farm, Farm Implements and Machinery
+Universe:    Farms
+Source code: NT42
+NHGIS code:  AF7
+    AF7001:      Value of farm, farm implements and machinery
+ 
+Table 41:    Newspapers by Frequency of Issue
+Universe:    Newspapers
+Source code: NT43
+NHGIS code:  AF8
+    AF8001:      Daily newspapers
+    AF8002:      Tri-weekly newspapers
+    AF8003:      Semi-weekly newspapers
+    AF8004:      Weekly newspapers
+    AF8005:      Semi-monthly newspapers
+    AF8006:      Monthly newspapers
+    AF8007:      Quarterly newspapers
+ 
+Table 42:    Annual Number of Copies by Frequency of Newspaper Issue
+Universe:    Newspapers
+Source code: NT44
+NHGIS code:  AF9
+    AF9001:      Annual number of copies >> Daily newspapers
+    AF9002:      Annual number of copies >> Tri-weekly newspapers
+    AF9003:      Annual number of copies >> Semi-weekly newspapers
+    AF9004:      Annual number of copies >> Weekly newspapers
+    AF9005:      Annual number of copies >> Semi-monthly newspapers
+    AF9006:      Annual number of copies >> Monthly newspapers
+    AF9007:      Annual number of copies >> Quarterly newspapers
+ 
+Table 43:    Aggregate Number of Newspapers
+Universe:    Newspapers
+Source code: NT45
+NHGIS code:  AGA
+    AGA001:      Aggregate number of newspapers
+ 
+Table 44:    Aggregate Annual Number of Copies of Newspapers
+Universe:    Newspapers
+Source code: NT46
+NHGIS code:  AGB
+    AGB001:      Aggregate annual number of copies
+ 
+Table 45:    Number of Newspapers by Publication Subject Coverage
+Universe:    Newspapers
+Source code: NT47
+NHGIS code:  AGC
+    AGC001:      Literary and miscellaneous
+    AGC002:      Neutral and independent
+    AGC003:      Political
+    AGC004:      Religious
+    AGC005:      Scientific
+ 
+Table 46:    Circulation of Newspapers by Publication Subject Coverage
+Universe:    Newspapers
+Source code: NT48
+NHGIS code:  AGD
+    AGD001:      Circulation >> Literary and miscellaneous
+    AGD002:      Circulation >> Neutral and independent
+    AGD003:      Circulation >> Political
+    AGD004:      Circulation >> Religious
+    AGD005:      Circulation >> Scientific
+ 
+Table 47:    Annual Number of Newspaper Copies by Publication Subject Coverage
+Universe:    Newspapers
+Source code: NT49
+NHGIS code:  AGE
+    AGE001:      Annual number of copies >> Literary and miscellaneous
+    AGE002:      Annual number of copies >> Neutral and independent
+    AGE003:      Annual number of copies >> Political
+    AGE004:      Annual number of copies >> Religious
+    AGE005:      Annual number of copies >> Scientific
+ 
+Table 48:    Aggregate Circulation of Newspapers
+Universe:    Newspapers
+Source code: NT50
+NHGIS code:  AGG
+    AGG001:      Aggregate circulation of newspapers
+ 
+Table 49:    Types of Libraries
+Universe:    Libraries
+Source code: NT51
+NHGIS code:  AGH
+    AGH001:      State
+    AGH002:      Social
+    AGH003:      Student
+    AGH004:      Academy and professional school
+    AGH005:      Scientific and historical society
+ 
+Table 50:    Number of Volumes in Types of Libraries
+Universe:    Libraries
+Source code: NT52
+NHGIS code:  AGI
+    AGI001:      Number of volumes >> State
+    AGI002:      Number of volumes >> Social
+    AGI003:      Number of volumes >> Student
+    AGI004:      Number of volumes >> Academy and professional school
+    AGI005:      Number of volumes >> Scientific and historical society
+ 
+Table 51:    Total Number of Libraries
+Universe:    Libraries
+Source code: NT53
+NHGIS code:  AGJ
+    AGJ001:      Total
+ 
+Table 52:    Total Number of Volumes in Libraries
+Universe:    Libraries
+Source code: NT54
+NHGIS code:  AGK
+    AGK001:      Number of volumes
+ 
+Table 53:    Area (Square Miles)
+Universe:    Specified Geographic Area
+Source code: NT55
+NHGIS code:  AGL
+    AGL001:      Total
+ 
+--------------------------------------------------------------------------------
+Citation and Use of NHGIS Data
+--------------------------------------------------------------------------------
+ 
+All persons are granted a limited license to use this documentation and the
+accompanying data, subject to the following conditions:
+
+* Publications and research reports employing NHGIS data (either tabular or GIS)
+  must cite it appropriately. The citation should include the following:
+
+    Steven Manson, Jonathan Schroeder, David Van Riper, and Steven Ruggles. 
+    IPUMS National Historical Geographic Information System: Version 12.0 [Database]. 
+    Minneapolis: University of Minnesota. 2017. 
+    http://doi.org/10.18128/D050.V12.0
+
+* Publications and research reports employing school attendance areas data
+  (either tabular or GIS) must cite it appropriately. The citation should
+  include the following:
+
+    The College of William and Mary and the Minnesota Population Center.
+    School Attendance Boundary Information System (SABINS): Version 1.0.
+    Minneapolis, MN: University of Minnesota 2011.
+
+* For policy briefs or articles in the popular press, we recommend that you cite the use of NHGIS data as follows:
+
+    IPUMS NHGIS, University of Minnesota, www.nhgis.org.
+
+* If possible, citations involving school attendance areas should also include
+  the URL for the SABINS site:
+
+    http://www.sabinsdata.org/.
+
+In addition, we request that users send us a copy of any publications, research
+reports, or educational material making use of the data or documentation.
+Printed matter should be sent to:
+
+    NHGIS
+    Minnesota Population Center
+    University of Minnesota
+    50 Willey Hall
+    225 19th Ave S
+    Minneapolis, MN 55455
+
+Send electronic material to: nhgis@umn.edu
