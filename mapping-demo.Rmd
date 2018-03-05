@@ -1,0 +1,168 @@
+---
+title: "Mapping Assignment"
+author: "PUT YOUR NAME HERE"
+date: "PUT THE DATE HERE"
+output: html_document
+---
+
+# Loading and preparing the data
+
+```{r setup}
+library(tidyverse)
+library(leaflet)
+library(sf)
+
+# Load the data
+nativity_1890 <- read_csv("census/nhgis0058_ds27_1890_state.csv")
+
+# Load the shapefiles and de-project to lat/long representations
+states_1890 <- read_sf("shapefiles/simplified/US_state_1890.shp") %>% 
+  st_transform(4326) %>% 
+  filter(STATENAM != "Alaska Territory")
+
+# Get the state centers
+centroids_1890 <- states_1890 %>% 
+  st_centroid() 
+```
+
+Some helper functions.
+
+```{r}
+# Plot just the geometries
+plot(st_geometry(states_1890))
+# Plot a variable
+plot(states_1890["SHAPE_AREA"])
+```
+
+
+Examine the corresponding codebook (in this case, `census/nhgis0058_ds27_1890_state_codebook.txt`) to see what the column names mean and make the data more amenable to exploration. In this case, `AUM001` is the code for total population, and `AVL016` is the code for born in Germany. We will use that information to make a more useful table.
+
+```{r}
+german <- nativity_1890 %>% 
+  select(state = STATE,
+         year = YEAR,
+         GISJOIN,
+         population = AUM001,
+         german = AVL016) %>% 
+  mutate(german_percent = round(german / population, 3)) %>% 
+  arrange(desc(german_percent))
+```
+
+# Exploratory analysis
+
+You can make a nice table like so.
+
+```{r}
+german %>% 
+  top_n(10, german_percent) %>% 
+  select(-GISJOIN, -year) %>%  
+  mutate(german_percent = german_percent * 100) %>% 
+  knitr::kable(format.args = list(big.mark = ","))
+```
+
+You can also make exploratory graphics, like this histogram of percentages.
+
+```{r}
+ggplot(german, aes(x = german_percent)) +
+  geom_histogram(binwidth = 0.01)
+```
+
+Or this bar plot of the German population.
+
+```{r}
+german %>% 
+  arrange(desc(german)) %>% 
+  mutate(state = fct_inorder(state)) %>% 
+  filter(german > 10000) %>% 
+  ggplot(aes(x = state, y = german)) +
+  geom_col() +
+  coord_flip()
+```
+
+## Mapping
+
+## Joining data
+
+Our state data is in two variables. `centroids_1890` has the latitude and longitude of the state centers, while `states_1890` has the polygons for the states. Our census data is in the `german` data frame, or more broadly in the `nativity_1890` data frame. We need to bring these two together with a `left_join()`. Luckily, NHGIS provides the `GISJOIN` column. Note: geometries on the left!
+
+## Points
+
+We will start with centroids since they are easier to map.
+
+```{r}
+german_points <- centroids_1890 %>% 
+  left_join(german, by = "GISJOIN")
+```
+
+We can make a leaflet map with similar synatx to ggplot2.
+
+```{r}
+leaflet(german_points) %>% 
+  addTiles() %>% 
+  addMarkers()
+```
+
+Markers are not very interesting. We want to set the radius of the circle to the square root of the population.
+
+```{r}
+pop_scale <- function(x, max_radius = 20) {
+  x %>% 
+    sqrt() %>% 
+    scales::rescale_max(to = c(0, max_radius))
+}
+pop_scale(german_points$german) %>% head()
+```
+
+
+```{r}
+leaflet(german_points) %>% 
+  addTiles() %>% 
+  addCircleMarkers(radius = ~pop_scale(german),
+                   label = ~state,
+                   popup = ~paste0(state, ": ", german),
+                   color = "red")
+```
+
+## Polygons
+
+First we need to join the polygons to the German data.
+
+```{r}
+german_shapes <- states_1890 %>% 
+  left_join(german, by = "GISJOIN")
+```
+
+Now we can map the polygons.
+
+```{r}
+leaflet(german_shapes) %>% 
+  addTiles() %>% 
+  addPolygons(label = ~state)
+```
+
+When we mapped the German population as points, we needed to scale the levels to pixels. Now we need to go from populations or percentages to colors. Leaflet provides a helper function.
+
+```{r}
+german_percent_colors <- colorNumeric("PuRd", domain = german$german_percent)
+german_percent_colors(german$german_percent) %>% head()
+```
+
+Now we can fill in the map.
+
+```{r}
+leaflet(german_shapes) %>% 
+  addTiles() %>% 
+  addPolygons(fillColor = ~german_percent_colors(german_percent),
+              fillOpacity = 1,
+              color = "black", weight = 1,
+              label = ~state,
+              popup = ~paste0(state, ": ", 100 * german_percent, "%")) %>% 
+  addLegend("bottomright", pal = german_percent_colors, values = ~german_percent,
+    title = "German born",
+    labFormat = labelFormat(suffix = "%",
+                            transform = function(x) {x * 100}),
+    opacity = 1
+  )
+```
+
+
