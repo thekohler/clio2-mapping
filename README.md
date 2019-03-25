@@ -7,7 +7,7 @@ Your assignment is to use the U.S. Census data in [NHGIS](https://www.nhgis.org/
 3. Explore the data. Use the codebooks to understand the variables' meaning. You will doubtless need to transform the data and normalize it by area or population. Exploration will likely include visualization.
 4. Make maps of the data. They can be either interactive (with leaflet) or static (with ggplot2). 
 
-You should turn in a brief essay that includes a minimum of two maps (interactive or static) and one visualization and approximately 500 words of prose. The prose, maps, and visualization should combine to make some historically meaningful interpretation using the census data. Your maps and visualizations should be of presentation quality. Include the code blocks, which should contain only the code necessary to generate the figures. Turn in both your R Markdown file and the HTML notebook to Dropbox.
+You should turn in a brief essay that includes a minimum of two maps (interactive or static) and one visualization and approximately 500 words of prose. The prose, maps, and visualization should combine to make some historically meaningful interpretation using the census data. Your maps and visualizations should be of presentation quality. Include the code blocks, which should contain only the code necessary to generate the figures. Turn in the link to your HTML file and the link to your GitHub repository.
 
 This repository contains sample code and data.
 
