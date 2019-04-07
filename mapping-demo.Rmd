@@ -1,7 +1,7 @@
 ---
 title: "Mapping Assignment"
-author: "PUT YOUR NAME HERE"
-date: "PUT THE DATE HERE"
+author: "Michael Kohler"
+date: "4/7/2109"
 output: html_document
 ---
 
