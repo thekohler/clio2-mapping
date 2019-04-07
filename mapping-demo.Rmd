@@ -12,6 +12,12 @@ library(tidyverse)
 library(leaflet)
 library(sf)
 
+pops_1850 <- read_csv("mapping_files/1850_population_race_slavery.csv")
+population_1860 <- read_csv("mapping_files/1860_total_population.csv")
+race_slavery_1860 <- read_csv("mapping_files/1860_race_slavery.csv")
+race_1870 <- read_csv("mapping_files/1870_county_race.csv")
+population_1870 <- read.csv("mapping_files/1870_total_population.csv")
+
 # Load the data
 nativity_1890 <- read_csv("census/nhgis0058_ds27_1890_state.csv")
 
