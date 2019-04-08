@@ -62,7 +62,7 @@ VA_pop_1870 <- race_1870 %>%
            total_white) %>% 
   filter(state == "Virginia")
 
-VA_pop_50_60 <- right_join(VA_pop_1850, VA_pop_1860, by = "GISJOIN", "county")
+VA_pop_50_60 <- right_join(VA_pop_1850, VA_pop_1860, by = "county")
 
 
          
@@ -88,8 +88,8 @@ plot(counties_va_1860["SHAPE_AREA"])
 I did a lot of the codebook stuff manually before I loaded by .csv files, partly because I wanted to avoid changing labels (though I think that was unnecessary work.  Either way, let's figure out the difference in slave populations between these counties as a percentage. 
 ```{r}
 VA_pop <- VA_pop_50_60 %>%
-  select(GISJOIN, 
-         county = county.y,
+  select(county,
+         full_name = full_name.y,
          total_1850 = total_pops.x,
          black_1850 = total_black.x,
          slave_1850 = total_slave.x,
@@ -100,20 +100,25 @@ VA_pop <- VA_pop_50_60 %>%
          white_1860 = total_white.y) %>%
   mutate(slave_diff = sum(slave_1860 - slave_1850, na.rm = FALSE)) %>% 
   mutate(diff_percent = round(slave_diff / slave_1850, 3)) %>% 
+  mutate(percent_slave_1860 = round(slave_1860 / total_1860, 3)) %>% 
+  mutate(percent_slave_1850 = round(slave_1850 / total_1850, 3)) %>%
+  mutate(percent_change = percent_slave_1860 - percent_slave_1850) %>% 
   arrange(desc(diff_percent))
+
+  
 
 ```
 
 # Exploratory analysis
 
-Ok. I beat my head into the wall for a while on this one. For some reason I just couldn't get top_n to work, no matter where I put it or how I changed it. I must have run 30 different versions. I'm really not sure what I'm doing wrong. Even online guides couldn't help me. I was going to post in slack about it, but, frankly, feel like I've wasted too much time on it and need to move on. The data is there and it works. New counties (which, therefore, have an NA) got tossed and the data looks manipulatable.
+Ok. I beat my head into the wall for a while on this one. For some reason I just couldn't get top_n to work, no matter where I put it or how I changed it. I must have run 30 different versions. I'm really not sure what I'm doing wrong. Even online guides couldn't help me. I was going to post in slack about it, but, frankly, feel like I've wasted too much time on it and need to move on. The data is there and it works. New counties (which, therefore, have an NA) got tossed and the data looks manipulatable. (edit, went back to change this from diff_percent to percent_change)
 
 
 ```{r}
 VA_pop %>% 
-  top_n(10, diff_percent) %>% 
-  select(county, diff_percent) %>%  
-  mutate(diff_percent = diff_percent * 100) %>% 
+  top_n(10, percent_change) %>% 
+  select(county, percent_change) %>%  
+  mutate(percent_change = percent_change * 100) %>% 
   knitr::kable(format.args = list(big.mark = ","))
 
 #WHY WILL THIS NOT WORK?????
@@ -122,18 +127,21 @@ VA_pop %>%
 Unsurprisingly, most counties don't experience wild shifts in the slave population, and I'm betting that the ones who did were tiny and didn't have many to begin with (like remote areas of what's now West Virginia.)
 
 ```{r}
-ggplot(VA_pop, aes(x = diff_percent)) +
-  geom_histogram(binwidth = 0.05)
+ggplot(VA_pop, aes(x = percent_change)) +
+  geom_histogram(binwidth = 0.01)
 ```
 
 Hmm. Another one where the important stuff works, but the command to put results in a specific order does nothing. Again, I tried moving things around but nothing seemed to change the results. Always it was in reverse order by county name. Which is just weird. The mapping_demo.rmd code was essentially identicall with different variables. Ug.
 
+Set up this one to see which counties saw the highest percentage of decrease in their slave population during this period. Unsurprisingly, counties that were later Unionist lead the pack.
+
 ```{r}
 VA_pop %>% 
-  arrange(desc(slave_diff)) %>% 
-  mutate(county = fct_inorder(county)) %>% 
-  filter(slave_diff < -50) %>% 
-  ggplot(aes(x = county, y = slave_diff)) +
+  arrange(desc(percent_change)) %>% 
+  mutate(county = fct_inorder(county)) %>%   
+  mutate(percent_change = percent_change * 100) %>% 
+  filter(percent_change < -2 ) %>% 
+  ggplot(aes(x = county, y = percent_change)) +
   geom_col() +
   coord_flip()
 ```
@@ -142,26 +150,34 @@ VA_pop %>%
 
 ## Joining data
 
-Our state data is in two variables. `centroids_1890` has the latitude and longitude of the state centers, while `states_1890` has the polygons for the states. Our census data is in the `german` data frame, or more broadly in the `nativity_1890` data frame. We need to bring these two together with a `left_join()`. Luckily, NHGIS provides the `GISJOIN` column. Note: geometries on the left!
+This almost murdered me.
+
+But I figured it out.
+
+The main problem was that I was using USAboundaries, which doesn't have GISjoin tags. The closest I had was county names, but UScounties keeps them in all caps while the CSV data didn't.
+
+So after beating my head against the wall (something I now do on just about every step this week) tryuing to do this with "toupper" in R, I eventually just did it in excel with the CSVs, then reuploaded them and redid my code to take advantage of a new "full_name" column (the counties in all caps).
 
 ## Points
 
 We will start with centroids since they are easier to map.
 
+
+
 ```{r}
 VA_points <- centroids_va_1860 %>% 
-  left_join(VA_pop, by = "GIS")
+  left_join(VA_pop, by = "full_name")
 ```
 
 We can make a leaflet map with similar synatx to ggplot2.
 
 ```{r}
-leaflet(german_points) %>% 
+leaflet(VA_slave_decrease_points) %>% 
   addTiles() %>% 
   addMarkers()
 ```
 
-Markers are not very interesting. We want to set the radius of the circle to the square root of the population.
+At this point I went back and redid a lot of my previous work, creating new variables that allowed me to only play with counties that saw a decrease in the percentage of their population that was enslaved.
 
 ```{r}
 pop_scale <- function(x, max_radius = 20) {
@@ -169,17 +185,25 @@ pop_scale <- function(x, max_radius = 20) {
     sqrt() %>% 
     scales::rescale_max(to = c(0, max_radius))
 }
-pop_scale(german_points$german) %>% head()
+pop_scale(VA_slave_decrease_points$percent_decrease) %>% head()
 ```
-
+I tried to figure out how to get these into one map. 
 
 ```{r}
-leaflet(german_points) %>% 
+leaflet(VA_slave_decrease_points) %>% 
   addTiles() %>% 
-  addCircleMarkers(radius = ~pop_scale(german),
-                   label = ~state,
-                   popup = ~paste0(state, ": ", german),
+  addCircleMarkers(radius = ~pop_scale(percent_decrease),
+                   label = ~county,
+                   popup = ~paste0(county, ": ", percent_decrease),
                    color = "red")
+  
+  
+  leaflet(VA_slave_increase_points) %>% 
+  addTiles() %>% 
+  addCircleMarkers(radius = ~pop_scale(percent_increase),
+                   label = ~county,
+                   popup = ~paste0(county, ": ", percent_increase),
+                   color = "blue")
 ```
 
 ## Polygons
@@ -187,37 +211,37 @@ leaflet(german_points) %>%
 First we need to join the polygons to the German data.
 
 ```{r}
-german_shapes <- states_1890 %>% 
-  left_join(german, by = "GISJOIN")
+VA_shapes <- counties_va_1860 %>% 
+  left_join(VA_pop, by = "full_name")
 ```
 
 Now we can map the polygons.
 
 ```{r}
-leaflet(german_shapes) %>% 
+leaflet(VA_shapes) %>% 
   addTiles() %>% 
-  addPolygons(label = ~state)
+  addPolygons(label = ~county)
 ```
 
-When we mapped the German population as points, we needed to scale the levels to pixels. Now we need to go from populations or percentages to colors. Leaflet provides a helper function.
+Went on ColorBrewer to find a better color selection for this, though I'm not 100% happy with the result.
 
 ```{r}
-german_percent_colors <- colorNumeric("PuRd", domain = german$german_percent)
-german_percent_colors(german$german_percent) %>% head()
+slave_percent_colors <- colorNumeric("RdBu", domain = VA_pop$percent_change)
+slave_percent_colors(VA_pop$percent_change) %>% head()
 ```
 
 Now we can fill in the map.
 
 ```{r}
-leaflet(german_shapes) %>% 
+leaflet(VA_shapes) %>% 
   addTiles() %>% 
-  addPolygons(fillColor = ~german_percent_colors(german_percent),
+  addPolygons(fillColor = ~slave_percent_colors(percent_change),
               fillOpacity = 1,
               color = "black", weight = 1,
-              label = ~state,
-              popup = ~paste0(state, ": ", 100 * german_percent, "%")) %>% 
-  addLegend("bottomright", pal = german_percent_colors, values = ~german_percent,
-    title = "German born",
+              label = ~county,
+              popup = ~paste0(county, ": ", 100 * percent_change, "%")) %>% 
+  addLegend("bottomright", pal = slave_percent_colors, values = ~percent_change,
+    title = "Change in Slave Population, 1850-1860",
     labFormat = labelFormat(suffix = "%",
                             transform = function(x) {x * 100}),
     opacity = 1
