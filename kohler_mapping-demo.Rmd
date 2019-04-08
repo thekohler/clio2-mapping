@@ -81,7 +81,7 @@ Some helper functions.
 # Plot just the geometries
 plot(st_geometry(counties_va_1860))
 # Plot a variable
-plot(counties_va_1860["SHAPE_AREA"])
+plot(counties_va_1860["area_sqmi"])
 ```
 
 
@@ -169,15 +169,23 @@ VA_points <- centroids_va_1860 %>%
   left_join(VA_pop, by = "full_name")
 ```
 
-We can make a leaflet map with similar synatx to ggplot2.
+At this point I went back and redid a lot of my previous work, creating new variables that allowed me to only play with counties that saw a decrease in the percentage of their population that was enslaved, since it didn't like linking points to negatives.
 
 ```{r}
+
+VA_slave_decrease_points <- VA_points %>% 
+   filter(percent_change < 0) %>% 
+  mutate(percent_decrease = percent_change * -100)
+  
+VA_slave_increase_points <- VA_points %>% 
+   filter(percent_change > 0) %>% 
+  mutate(percent_increase = percent_change * -100)
+
 leaflet(VA_slave_decrease_points) %>% 
   addTiles() %>% 
   addMarkers()
 ```
 
-At this point I went back and redid a lot of my previous work, creating new variables that allowed me to only play with counties that saw a decrease in the percentage of their population that was enslaved.
 
 ```{r}
 pop_scale <- function(x, max_radius = 20) {
@@ -187,7 +195,7 @@ pop_scale <- function(x, max_radius = 20) {
 }
 pop_scale(VA_slave_decrease_points$percent_decrease) %>% head()
 ```
-I tried to figure out how to get these into one map. 
+I tried to figure out how to get these into one map, but couldn't. Commented out the increase map for now.
 
 ```{r}
 leaflet(VA_slave_decrease_points) %>% 
@@ -198,12 +206,12 @@ leaflet(VA_slave_decrease_points) %>%
                    color = "red")
   
   
-  leaflet(VA_slave_increase_points) %>% 
-  addTiles() %>% 
-  addCircleMarkers(radius = ~pop_scale(percent_increase),
-                   label = ~county,
-                   popup = ~paste0(county, ": ", percent_increase),
-                   color = "blue")
+  #leaflet(VA_slave_increase_points) %>% 
+ # addTiles() %>% 
+  #addCircleMarkers(radius = ~pop_scale(percent_increase),
+  #                 label = ~county,
+  #                 popup = ~paste0(county, ": ", percent_increase),
+   #                color = "blue")
 ```
 
 ## Polygons
@@ -230,7 +238,7 @@ slave_percent_colors <- colorNumeric("RdBu", domain = VA_pop$percent_change)
 slave_percent_colors(VA_pop$percent_change) %>% head()
 ```
 
-Now we can fill in the map.
+This was actually intresting. I expected, as I said earlier, for mostly Unionist areas to have a decrease in the % that was enslaved, but I didn't get that result. There are a couple of hotspots in areas of what's now West Virginia, but it's hardly the rule. There's lots of increases, too.
 
 ```{r}
 leaflet(VA_shapes) %>% 
