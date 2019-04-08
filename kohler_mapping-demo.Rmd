@@ -1,0 +1,222 @@
+---
+title: "Mapping Assignment"
+author: "Michael Kohler"
+date: "4/7/2109"
+output: html_document
+---
+
+# Loading and preparing the data
+
+```{r setup}
+library(tidyverse)
+library(leaflet)
+library(sf)
+
+
+# Load the data
+pop_1850 <- read_csv("mapping_files/pop_1850.csv")
+total_1860 <- read_csv("mapping_files/total_1860.csv")
+race_1860 <- read_csv("mapping_files/race_1860.csv")
+race_1870 <- read_csv("mapping_files/race_1870.csv")
+total_1870 <- read.csv("mapping_files/total_1870.csv")
+
+VA_pop_1850 <- pop_1850 %>% 
+  rowwise() %>%
+  mutate(total_black = sum( free_black, total_slave, na.rm = TRUE)) %>% 
+    select(state = STATE,
+           county = COUNTY,
+           year = YEAR,
+           GISJOIN,
+           total_pops = total_population,
+           total_black,
+           free_black,
+           total_slave,
+           total_white) %>% 
+  filter(state == "Virginia")
+
+VA_pop_1860 <- race_1860 %>% 
+  left_join(total_1860) %>% 
+  rowwise() %>%
+  mutate(total_black = sum( free_black, total_slave, na.rm = TRUE)) %>% 
+  select(state = STATE,
+           county = COUNTY,
+           year = YEAR,
+           GISJOIN,
+           total_pops = total_population,
+           total_black,
+           free_black,
+           total_slave,
+           total_white) %>% 
+  filter(state == "Virginia")
+
+VA_pop_1870 <- race_1870 %>% 
+  left_join(total_1870) %>% 
+  rowwise() %>%
+  select(state = STATE,
+           county = COUNTY,
+           year = YEAR,
+           GISJOIN,
+           total_pops = total_population,
+           total_black = free_black,
+           total_white) %>% 
+  filter(state == "Virginia")
+
+VA_pop <- right_join(VA_pop_1850, VA_pop_1860, by = "county") %>% 
+  select(county,
+         total_1850 = total_pops.x,
+         black_1850 = total_black.x,
+         slave_1850 = total_slave.x,
+         white_1850 = total_white.x,
+         total_1860 = total_pops.y,
+         black_1860 = total_black.y,
+         slave_1860 = total_slave.y,
+         white_1860 = total_white.y) %>%
+  mutate(slave_diff = sum(slave_1850 / slave_1860, na.rm = TRUE))
+         
+
+# Load the shapefiles and de-project to lat/long representations
+
+# Get the state centers
+```
+
+Some helper functions.
+
+```{r}
+# Plot just the geometries
+plot(st_geometry(states_1890))
+# Plot a variable
+plot(states_1890["SHAPE_AREA"])
+```
+
+
+Examine the corresponding codebook (in this case, `census/nhgis0058_ds27_1890_state_codebook.txt`) to see what the column names mean and make the data more amenable to exploration. In this case, `AUM001` is the code for total population, and `AVL016` is the code for born in Germany. We will use that information to make a more useful table.
+
+```{r}
+german <- nativity_1890 %>% 
+  select(state = STATE,
+         year = YEAR,
+         GISJOIN,
+         population = AUM001,
+         german = AVL016) %>% 
+  mutate(german_percent = round(german / population, 3)) %>% 
+  arrange(desc(german_percent))
+```
+
+# Exploratory analysis
+
+You can make a nice table like so.
+
+```{r}
+german %>% 
+  top_n(10, german_percent) %>% 
+  select(-GISJOIN, -year) %>%  
+  mutate(german_percent = german_percent * 100) %>% 
+  knitr::kable(format.args = list(big.mark = ","))
+```
+
+You can also make exploratory graphics, like this histogram of percentages.
+
+```{r}
+ggplot(german, aes(x = german_percent)) +
+  geom_histogram(binwidth = 0.01)
+```
+
+Or this bar plot of the German population.
+
+```{r}
+german %>% 
+  arrange(desc(german)) %>% 
+  mutate(state = fct_inorder(state)) %>% 
+  filter(german > 10000) %>% 
+  ggplot(aes(x = state, y = german)) +
+  geom_col() +
+  coord_flip()
+```
+
+## Mapping
+
+## Joining data
+
+Our state data is in two variables. `centroids_1890` has the latitude and longitude of the state centers, while `states_1890` has the polygons for the states. Our census data is in the `german` data frame, or more broadly in the `nativity_1890` data frame. We need to bring these two together with a `left_join()`. Luckily, NHGIS provides the `GISJOIN` column. Note: geometries on the left!
+
+## Points
+
+We will start with centroids since they are easier to map.
+
+```{r}
+german_points <- centroids_1890 %>% 
+  left_join(german, by = "GISJOIN")
+```
+
+We can make a leaflet map with similar synatx to ggplot2.
+
+```{r}
+leaflet(german_points) %>% 
+  addTiles() %>% 
+  addMarkers()
+```
+
+Markers are not very interesting. We want to set the radius of the circle to the square root of the population.
+
+```{r}
+pop_scale <- function(x, max_radius = 20) {
+  x %>% 
+    sqrt() %>% 
+    scales::rescale_max(to = c(0, max_radius))
+}
+pop_scale(german_points$german) %>% head()
+```
+
+
+```{r}
+leaflet(german_points) %>% 
+  addTiles() %>% 
+  addCircleMarkers(radius = ~pop_scale(german),
+                   label = ~state,
+                   popup = ~paste0(state, ": ", german),
+                   color = "red")
+```
+
+## Polygons
+
+First we need to join the polygons to the German data.
+
+```{r}
+german_shapes <- states_1890 %>% 
+  left_join(german, by = "GISJOIN")
+```
+
+Now we can map the polygons.
+
+```{r}
+leaflet(german_shapes) %>% 
+  addTiles() %>% 
+  addPolygons(label = ~state)
+```
+
+When we mapped the German population as points, we needed to scale the levels to pixels. Now we need to go from populations or percentages to colors. Leaflet provides a helper function.
+
+```{r}
+german_percent_colors <- colorNumeric("PuRd", domain = german$german_percent)
+german_percent_colors(german$german_percent) %>% head()
+```
+
+Now we can fill in the map.
+
+```{r}
+leaflet(german_shapes) %>% 
+  addTiles() %>% 
+  addPolygons(fillColor = ~german_percent_colors(german_percent),
+              fillOpacity = 1,
+              color = "black", weight = 1,
+              label = ~state,
+              popup = ~paste0(state, ": ", 100 * german_percent, "%")) %>% 
+  addLegend("bottomright", pal = german_percent_colors, values = ~german_percent,
+    title = "German born",
+    labFormat = labelFormat(suffix = "%",
+                            transform = function(x) {x * 100}),
+    opacity = 1
+  )
+```
+
+
