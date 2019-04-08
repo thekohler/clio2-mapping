@@ -114,31 +114,45 @@ VA_pop <- VA_pop_50_60 %>%
 Ok. I beat my head into the wall for a while on this one. For some reason I just couldn't get top_n to work, no matter where I put it or how I changed it. I must have run 30 different versions. I'm really not sure what I'm doing wrong. Even online guides couldn't help me. I was going to post in slack about it, but, frankly, feel like I've wasted too much time on it and need to move on. The data is there and it works. New counties (which, therefore, have an NA) got tossed and the data looks manipulatable. (edit, went back to change this from diff_percent to percent_change)
 
 
+Beating my head into a wall was very much the theme of these two weeks. A good deal of a week on and off was spent just getting the .csv's to load correctly, though originally that was perhaps a result of my both thinking about them incorrectly and maybe thinking too big early on. I struggled to get 3 census' worth of data into one csv, but I think it worked better to have the joined csv work the way it did, as it made for easier comparison between various numbers for each year.
+
+The results, as you will see, are less in the category of "this will reshape my dissertation" and more "this will complete this Clio 2 assignement."
+
+Regardless, I'm interested in how slavery changed in Virginia in the years just prior to the Civil War and, particuarly, how common slave sales were as the storm clouds of war appeared on the horizon (including those who sold their slaves off in the wake of secession, perhaps placing their faith more in the value of gold or the dollar than on the might of the Confederate Army). While I won't be able to interrogate sales/manumissions during the period between the census and the emancipation using census data (indeed, I also looked at 1870 census data, but it's difficult to tell to what extent shifts in the county-by-county black population stems more from post-war migration than from slave sales, while antebellum shifts would represent almost wholly sales or the occasional manumission), I was able to pry into the 1850-1860 data to see if I could see any regional trends within Virginia. It goes without saying that the quality of conclusions made by comparing two censuses is fairly low (after all, it's impossible to determine to what extend variations are simply the result of 19th century errors) but there were still revelations to be had.
+
+
+Here, to start, we have a simple list of counties with the percentage changed. It's of limited utility since I could, as previously mentioned, not get top_n to work.
+
+
 ```{r}
 VA_pop %>% 
-  top_n(10, percent_change) %>% 
   select(county, percent_change) %>%  
   mutate(percent_change = percent_change * 100) %>% 
+  top_n(10, percent_change) %>% 
   knitr::kable(format.args = list(big.mark = ","))
 
 #WHY WILL THIS NOT WORK?????
 ```
 
-Unsurprisingly, most counties don't experience wild shifts in the slave population, and I'm betting that the ones who did were tiny and didn't have many to begin with (like remote areas of what's now West Virginia.)
+Unsurprisingly, most counties don't experience wild shifts in the slave population during a single decade, though there are some outliers with significant changes on each side. A 10% change in a slave state as establish as Virginia in the middle of the 19th Century certainly sticks out.
 
 ```{r}
-ggplot(VA_pop, aes(x = percent_change)) +
-  geom_histogram(binwidth = 0.01)
+VA_pop %>% 
+  mutate(percent_change = percent_change * 100) %>% 
+  ggplot(aes(x = percent_change)) +
+  geom_histogram(binwidth = 0.3) +
+  labs(title = "Change in the percent enslaved per county in Virginia, 1850-1860",
+        x = "Percent change",
+        y = "Number of Counties")
 ```
 
 Hmm. Another one where the important stuff works, but the command to put results in a specific order does nothing. Again, I tried moving things around but nothing seemed to change the results. Always it was in reverse order by county name. Which is just weird. The mapping_demo.rmd code was essentially identicall with different variables. Ug.
 
-Set up this one to see which counties saw the highest percentage of decrease in their slave population during this period. Unsurprisingly, counties that were later Unionist lead the pack.
+Set up this one to see which counties saw the highest percentage of decrease in their slave population during this period. Unsurprisingly, many counties that were later Unionist (including what's now West Virginia) made this list (cut to show only those counties where the decrease was more than 2%), but York County, in the heart of the Tidewater, shockingly leads the pack. I'll have to investigate more to determine what happened there. It's not that the county was divided during that decade, becasue the white population increases during that decade.
 
 ```{r}
 VA_pop %>% 
   arrange(desc(percent_change)) %>% 
-  mutate(county = fct_inorder(county)) %>%   
   mutate(percent_change = percent_change * 100) %>% 
   filter(percent_change < -2 ) %>% 
   ggplot(aes(x = county, y = percent_change)) +
@@ -156,7 +170,7 @@ But I figured it out.
 
 The main problem was that I was using USAboundaries, which doesn't have GISjoin tags. The closest I had was county names, but UScounties keeps them in all caps while the CSV data didn't.
 
-So after beating my head against the wall (something I now do on just about every step this week) tryuing to do this with "toupper" in R, I eventually just did it in excel with the CSVs, then reuploaded them and redid my code to take advantage of a new "full_name" column (the counties in all caps).
+So after beating my head against the wall (something I now do on just about every step this week) trying to do this with "toupper" in R, I eventually just did it in excel with the CSVs, then reuploaded them and redid my code to take advantage of a new "full_name" column (the counties in all caps).
 
 ## Points
 
@@ -170,6 +184,8 @@ VA_points <- centroids_va_1860 %>%
 ```
 
 At this point I went back and redid a lot of my previous work, creating new variables that allowed me to only play with counties that saw a decrease in the percentage of their population that was enslaved, since it didn't like linking points to negatives.
+
+Either way, he's a simple point map shwoing which counties had any decrease in the population which was enslaved during that decade.
 
 ```{r}
 
@@ -195,8 +211,9 @@ pop_scale <- function(x, max_radius = 20) {
 }
 pop_scale(VA_slave_decrease_points$percent_decrease) %>% head()
 ```
-I tried to figure out how to get these into one map, but couldn't. Commented out the increase map for now.
+(I tried to figure out how to get these into one map, but couldn't, so I split the area into two and created two maps)
 
+First, here's a map showing the counties that had a decrease in the percentage of the population which was enslaved, with the percentage decrease shown as a circle radius map.
 ```{r}
 leaflet(VA_slave_decrease_points) %>% 
   addTiles() %>% 
@@ -204,41 +221,50 @@ leaflet(VA_slave_decrease_points) %>%
                    label = ~county,
                    popup = ~paste0(county, ": ", percent_decrease),
                    color = "red")
-  
-  
-  #leaflet(VA_slave_increase_points) %>% 
- # addTiles() %>% 
-  #addCircleMarkers(radius = ~pop_scale(percent_increase),
-  #                 label = ~county,
-  #                 popup = ~paste0(county, ": ", percent_increase),
-   #                color = "blue")
+
 ```
+And here's a second map showing the Virginia counties in which the percentage of the population which was enslaved grew during the decade immediately following the Civil War.
+
+There does indeed seem to be regional clustering. There are few counties in Northern or Western Virginia that saw increases in the slave population. It will be interesting to get into the archives to determine to what extent this is a continuation of long-term trends in Virginia slavery (I should look at more census data) and to what extent it might reflect some of the larger slaveholders moving more of their enslaved property further South, whether to make escape more difficult or in anticipation of civil war. I know already of a few local planations that sent slaves South and others who simply sold off nearly all their slaves at the beginning of the war (in turn destroying a community of slaves that had been in existence for centuries).
+
+Frutratingly, this map works perfectly fine in RStudio but shows up as tiny little dotlets when knitted, while the decrease map works fine in both. SIGH.
+```{r}
+  
+  leaflet(VA_slave_increase_points) %>% 
+    addTiles() %>% 
+    addCircleMarkers(radius = ~pop_scale(percent_increase),
+                    label = ~county,
+                    popup = ~paste0(county, ": ", percent_increase),
+                    color = "blue")
+   
+   
+``` 
 
 ## Polygons
 
-First we need to join the polygons to the German data.
-
+Joining the polygons was fairly straightforward, once I did the work of adding in a joinable variable (in this case, the counties in all caps).
 ```{r}
 VA_shapes <- counties_va_1860 %>% 
   left_join(VA_pop, by = "full_name")
 ```
 
-Now we can map the polygons.
-
+Again, this was fairly straightforward. And quite pretty.
 ```{r}
 leaflet(VA_shapes) %>% 
   addTiles() %>% 
   addPolygons(label = ~county)
 ```
 
-Went on ColorBrewer to find a better color selection for this, though I'm not 100% happy with the result.
+Went on Color Brewer to find a better color selection for this, though I'm not 100% happy with the result.
 
 ```{r}
 slave_percent_colors <- colorNumeric("RdBu", domain = VA_pop$percent_change)
 slave_percent_colors(VA_pop$percent_change) %>% head()
 ```
 
-This was actually intresting. I expected, as I said earlier, for mostly Unionist areas to have a decrease in the % that was enslaved, but I didn't get that result. There are a couple of hotspots in areas of what's now West Virginia, but it's hardly the rule. There's lots of increases, too.
+This was actually intresting. I expected, as I said earlier, for mostly Unionist areas to have a decrease in the % that was enslaved, and that seems to be the result I got (I had to redo this analysis once I realized the issue with my colormaps that I wrote about in Slack... It made it look like WV was mostly increasing when, in reality, it was almost all decreases.). I'm going to have to redo this area if I can figure out how to change the colormaps to force a color to be negative and another to be positive.
+
+I'm going to have to in the future look into some of the "NA" counties. These are all counties that existed in 1860 but didn't exist in 1850). I suspect several are just counties that were subdivided, so I could in the future add the old counties together to compare with the 1860 county.
 
 ```{r}
 leaflet(VA_shapes) %>% 
