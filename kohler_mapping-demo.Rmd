@@ -10,6 +10,7 @@ output: html_document
 ```{r setup}
 library(tidyverse)
 library(leaflet)
+library(USAboundaries)
 library(sf)
 
 
@@ -26,7 +27,7 @@ VA_pop_1850 <- pop_1850 %>%
     select(state = STATE,
            county = COUNTY,
            year = YEAR,
-           GISJOIN,
+           full_name,
            total_pops = total_population,
            total_black,
            free_black,
@@ -41,7 +42,7 @@ VA_pop_1860 <- race_1860 %>%
   select(state = STATE,
            county = COUNTY,
            year = YEAR,
-           GISJOIN,
+           full_name,
            total_pops = total_population,
            total_black,
            free_black,
@@ -55,14 +56,40 @@ VA_pop_1870 <- race_1870 %>%
   select(state = STATE,
            county = COUNTY,
            year = YEAR,
-           GISJOIN,
+           full_name,
            total_pops = total_population,
            total_black = free_black,
            total_white) %>% 
   filter(state == "Virginia")
 
-VA_pop <- right_join(VA_pop_1850, VA_pop_1860, by = "county") %>% 
-  select(county,
+VA_pop_50_60 <- right_join(VA_pop_1850, VA_pop_1860, by = "GISJOIN", "county")
+
+
+         
+
+# Load the shapefiles and de-project to lat/long representations
+counties_va_1860 <- us_counties("1860-06-01", states = "Virginia")
+
+# Get the state centers
+  centroids_va_1860 <- counties_va_1860 %>% 
+    st_centroid()
+```
+
+Some helper functions.
+
+```{r}
+# Plot just the geometries
+plot(st_geometry(counties_va_1860))
+# Plot a variable
+plot(counties_va_1860["SHAPE_AREA"])
+```
+
+
+I did a lot of the codebook stuff manually before I loaded by .csv files, partly because I wanted to avoid changing labels (though I think that was unnecessary work.  Either way, let's figure out the difference in slave populations between these counties as a percentage. 
+```{r}
+VA_pop <- VA_pop_50_60 %>%
+  select(GISJOIN, 
+         county = county.y,
          total_1850 = total_pops.x,
          black_1850 = total_black.x,
          slave_1850 = total_slave.x,
@@ -71,64 +98,42 @@ VA_pop <- right_join(VA_pop_1850, VA_pop_1860, by = "county") %>%
          black_1860 = total_black.y,
          slave_1860 = total_slave.y,
          white_1860 = total_white.y) %>%
-  mutate(slave_diff = sum(slave_1850 / slave_1860, na.rm = TRUE))
-         
+  mutate(slave_diff = sum(slave_1860 - slave_1850, na.rm = FALSE)) %>% 
+  mutate(diff_percent = round(slave_diff / slave_1850, 3)) %>% 
+  arrange(desc(diff_percent))
 
-# Load the shapefiles and de-project to lat/long representations
-
-# Get the state centers
-```
-
-Some helper functions.
-
-```{r}
-# Plot just the geometries
-plot(st_geometry(states_1890))
-# Plot a variable
-plot(states_1890["SHAPE_AREA"])
-```
-
-
-Examine the corresponding codebook (in this case, `census/nhgis0058_ds27_1890_state_codebook.txt`) to see what the column names mean and make the data more amenable to exploration. In this case, `AUM001` is the code for total population, and `AVL016` is the code for born in Germany. We will use that information to make a more useful table.
-
-```{r}
-german <- nativity_1890 %>% 
-  select(state = STATE,
-         year = YEAR,
-         GISJOIN,
-         population = AUM001,
-         german = AVL016) %>% 
-  mutate(german_percent = round(german / population, 3)) %>% 
-  arrange(desc(german_percent))
 ```
 
 # Exploratory analysis
 
-You can make a nice table like so.
+Ok. I beat my head into the wall for a while on this one. For some reason I just couldn't get top_n to work, no matter where I put it or how I changed it. I must have run 30 different versions. I'm really not sure what I'm doing wrong. Even online guides couldn't help me. I was going to post in slack about it, but, frankly, feel like I've wasted too much time on it and need to move on. The data is there and it works. New counties (which, therefore, have an NA) got tossed and the data looks manipulatable.
+
 
 ```{r}
-german %>% 
-  top_n(10, german_percent) %>% 
-  select(-GISJOIN, -year) %>%  
-  mutate(german_percent = german_percent * 100) %>% 
+VA_pop %>% 
+  top_n(10, diff_percent) %>% 
+  select(county, diff_percent) %>%  
+  mutate(diff_percent = diff_percent * 100) %>% 
   knitr::kable(format.args = list(big.mark = ","))
+
+#WHY WILL THIS NOT WORK?????
 ```
 
-You can also make exploratory graphics, like this histogram of percentages.
+Unsurprisingly, most counties don't experience wild shifts in the slave population, and I'm betting that the ones who did were tiny and didn't have many to begin with (like remote areas of what's now West Virginia.)
 
 ```{r}
-ggplot(german, aes(x = german_percent)) +
-  geom_histogram(binwidth = 0.01)
+ggplot(VA_pop, aes(x = diff_percent)) +
+  geom_histogram(binwidth = 0.05)
 ```
 
-Or this bar plot of the German population.
+Hmm. Another one where the important stuff works, but the command to put results in a specific order does nothing. Again, I tried moving things around but nothing seemed to change the results. Always it was in reverse order by county name. Which is just weird. The mapping_demo.rmd code was essentially identicall with different variables. Ug.
 
 ```{r}
-german %>% 
-  arrange(desc(german)) %>% 
-  mutate(state = fct_inorder(state)) %>% 
-  filter(german > 10000) %>% 
-  ggplot(aes(x = state, y = german)) +
+VA_pop %>% 
+  arrange(desc(slave_diff)) %>% 
+  mutate(county = fct_inorder(county)) %>% 
+  filter(slave_diff < -50) %>% 
+  ggplot(aes(x = county, y = slave_diff)) +
   geom_col() +
   coord_flip()
 ```
@@ -144,8 +149,8 @@ Our state data is in two variables. `centroids_1890` has the latitude and longit
 We will start with centroids since they are easier to map.
 
 ```{r}
-german_points <- centroids_1890 %>% 
-  left_join(german, by = "GISJOIN")
+VA_points <- centroids_va_1860 %>% 
+  left_join(VA_pop, by = "GIS")
 ```
 
 We can make a leaflet map with similar synatx to ggplot2.
